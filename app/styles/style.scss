@@ -10,6 +10,23 @@ body {
 .navbar {
   margin-bottom: 0;
   border-radius: 0;
+  background: url("/images/bg-noise.png") repeat scroll 0% 0% rgb(17, 17, 17);
+}
+
+.navbar-nav > li > a {
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
+
+.navbar-brand {
+  padding: 0 ;
+  margin: 15px 25px 0 10px;
+  display: inline-block;
+  width: 100px;
+  height: 42px;
+  background: transparent url("/images/africahacktrip-logo-w.png") no-repeat 0 0;
+  background-size: contain;
+  text-indent: -1000000px;
 }
 
 #bigfatmap {
