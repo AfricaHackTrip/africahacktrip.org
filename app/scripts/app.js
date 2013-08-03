@@ -1,4 +1,5 @@
-var AHT = window.AHT = Ember.Application.create();
+var AHT = window.AHT = Ember.Application.create({
+});
 
 /* Order and include as you please. */
 require('scripts/routes/*');

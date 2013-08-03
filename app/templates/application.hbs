@@ -3,17 +3,14 @@
     <a class="navbar-brand" href="#">AfricaHackTrip</a>
     <ul class="nav navbar-nav">
       <li class="active"><a href="#">Home</a></li>
-      <li><a href="#">Kenya</a></li>
-      <li><a href="#">Uganda</a></li>
-      <li><a href="#">Rwanda</a></li>
-      <li><a href="#">Tanzania</a></li>
+      <li>{{#linkTo kenya}}Kenya{{/linkTo}}</li>
+      <li>{{#linkTo uganda}}Uganda{{/linkTo}}</li>
+      <li>{{#linkTo rwanda}}Rwanda{{/linkTo}}</li>
+      <li>{{#linkTo tanzania}}Tanzania{{/linkTo}}</li>
     </ul>
   </div>
 </div>
-<div id="bigfatmap">
-  {{view AHT.BigfatmapView}}
-</div>
-
+<div id="bigfatmap"></div>
 <div class="container">
   {{outlet}}
 </div>

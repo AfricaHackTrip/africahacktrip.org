@@ -1,5 +1,12 @@
 body {
   background: url("/images/bg-noise.png") repeat scroll 0% 0% rgb(51, 51, 51);
+  font-family: Ubuntu, sans-serif;
+  color: #ccc;
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: Ubuntu, sans-serif;
+  color: #999;
 }
 
 .container-full {
