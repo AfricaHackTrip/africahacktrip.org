@@ -77,6 +77,32 @@ window.Hackmap = {
     $.each(this.cities, function(cityName, city) {
       self.addCountryLabel(cityName, city);
     });
+
+		$.each(["UgandaOutline", "KenyaOutline", "RwandaOutline", "TanzaniaOutline"], function(index, outline) {
+			L.geoJson(window[outline], {
+				style: function (feature) {
+					return {
+						weight: 1,
+						fillOpacity: 0.1,
+						color: "#00ff00"
+					};
+				},
+				onEachFeature: function(feature, layer) {
+					layer.on("mouseover", function(e) {
+						layer.setStyle({
+							color: "#00ff00",
+							weight: 2
+						});
+					});
+					layer.on("mouseout", function(e) {
+						layer.setStyle({
+							color: "#ccc",
+							weight: 1
+						});
+					});
+				}
+			}).addTo(self.m);
+		});
   },
 
   moveToCity: function(cityName) {
