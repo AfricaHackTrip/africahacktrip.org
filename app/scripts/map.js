@@ -67,7 +67,7 @@ window.Hackmap = {
     );
     self.m.attributionControl.setPrefix('');
 
-    L.tileLayer('http://{s}.tiles.mapbox.com/v3/skddc.map-9wkh1xoj/{z}/{x}/{y}.png', {
+    L.tileLayer('https://{s}.tiles.mapbox.com/v3/skddc.map-9wkh1xoj/{z}/{x}/{y}.png', {
       attribution: '',
       maxZoom: 17
     }).addTo(self.m);
