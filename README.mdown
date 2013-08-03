@@ -1,0 +1,11 @@
+
+
+Run it
+==============
+
+npm install -g grunt
+npm install -g yo
+npm install
+bower install
+grunt server
+
