@@ -2,11 +2,21 @@
   <div class="navbar navbar-inverse">
     <a class="navbar-brand" href="#">AfricaHackTrip</a>
     <ul class="nav navbar-nav">
-      <li class="active"><a href="#">Home</a></li>
-      <li>{{#linkTo kenya}}Kenya{{/linkTo}}</li>
-      <li>{{#linkTo uganda}}Uganda{{/linkTo}}</li>
-      <li>{{#linkTo rwanda}}Rwanda{{/linkTo}}</li>
-      <li>{{#linkTo tanzania}}Tanzania{{/linkTo}}</li>
+      {{#linkTo index tagName="li"}}
+        <a {{bindAttr href="view.href"}}>Home</a>
+      {{/linkTo}}
+      {{#linkTo kenya tagName="li"}}
+        <a {{bindAttr href="view.href"}}>Kenya</a>
+      {{/linkTo}}
+      {{#linkTo uganda tagName="li"}}
+        <a {{bindAttr href="view.href"}}>Uganda</a>
+      {{/linkTo}}
+      {{#linkTo rwanda tagName="li"}}
+        <a {{bindAttr href="view.href"}}>Rwanda</a>
+      {{/linkTo}}
+      {{#linkTo tanzania tagName="li"}}
+        <a {{bindAttr href="view.href"}}>Tanzania</a>
+      {{/linkTo}}
     </ul>
   </div>
 </div>
