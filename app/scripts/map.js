@@ -62,9 +62,11 @@ window.Hackmap = {
     var self = this;
     L.Icon.Default.imagePath = "/images/leaflet";
 
-    self.m = L.map('bigfatmap').setView(
-      [-2.350415, 35.679931], 5
-    );
+    self.m = L.map('bigfatmap', {
+      center: [-2.350415, 35.679931],
+      zoom: 5,
+      scrollWheelZoom: false
+    });
     self.m.attributionControl.setPrefix('');
 
     L.tileLayer('https://{s}.tiles.mapbox.com/v3/skddc.map-9wkh1xoj/{z}/{x}/{y}.png', {
@@ -80,6 +82,10 @@ window.Hackmap = {
   moveToCity: function(cityName) {
    var city = this.cities[cityName];
    this.m.setView([city.lat, city.lng], 6, {animate: true});
+  },
+
+  moveToOverview: function() {
+   this.m.setView([-2.350415, 35.679931], 5, {animate: true});
   },
 
   addCountryLabel: function(cityName, index) {
