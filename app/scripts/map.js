@@ -107,7 +107,7 @@ window.Hackmap = {
 
   moveToCity: function(cityName) {
    var city = this.cities[cityName];
-   this.m.setView([city.lat, city.lng], 6, {animate: true});
+   this.m.setView([city.lat, city.lng], 7, {animate: true});
   },
 
   moveToOverview: function() {
