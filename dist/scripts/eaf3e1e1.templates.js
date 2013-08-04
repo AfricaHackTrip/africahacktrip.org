@@ -226,7 +226,7 @@ helpers = helpers || Ember.Handlebars.helpers; data = data || {};
   
 
 
-  data.buffer.push("<aside>\n  <h1>Nairobi, Kenya</h1>\n  <p class=\"date\">Sep 24 - Oct 01, 2013</p>\n</aside>\n\n<main>\n  <h1>Events</h1>\n  <div class=\"lanyrd-target-schedule\">\n      <a href=\"http://lanyrd.com/2013/aht13-kenya/schedule/\"\n          class=\"lanyrd-schedule\"\n          data-lanyrd-locations\n          data-lanyrd-nostyles\n          data-lanyrd-nolink>\n          Schedule for AHT Kenya chapter on Lanyrd\n      </a>\n  </div>\n</main>\n\n<script src=\"http://cdn.lanyrd.net/badges/embed-v1.min.js\"></script>\n");
+  data.buffer.push("<aside>\n  <h1>Nairobi, Kenya</h1>\n  <p class=\"date\">Sep 24 - Oct 01, 2013</p>\n</aside>\n\n<main>\n  <h1>Events</h1>\n  <div class=\"lanyrd-target-schedule\">\n      <a href=\"https://lanyrd.com/2013/aht13-kenya/schedule/\"\n          class=\"lanyrd-schedule\"\n          data-lanyrd-locations\n          data-lanyrd-nostyles\n          data-lanyrd-nolink>\n          Schedule for AHT Kenya chapter on Lanyrd\n      </a>\n  </div>\n</main>\n\n<script src=\"https://cdn.lanyrd.net/badges/embed-v1.min.js\"></script>\n");
   
 });
 
