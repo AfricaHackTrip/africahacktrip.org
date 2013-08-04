@@ -151,10 +151,12 @@ main {
 .content {
   color: black;  
 }
-#tagline {
+h1#tagline {
   position: absolute;
-  top: 100px;
+  top: 120px;
   color: #efefef;
+  font-size: 28px;
+  color: #00FF00;
 }
 #teaser {
   font-size: 1.2em;
@@ -167,13 +169,20 @@ main {
 }
 #intro {
   position: absolute;
-  top: 200px;
-}
-#intro p {
-  font-size: 1.4em;
-  line-height: 2em;
-  margin: 0 0 .5em;
-  border-left: .4em solid rgba(0,0,0, .8);
+  top: 210px;
+  p {
+    font-size: 1.4em;
+    line-height: 2em;
+    margin: 0;
+    border-left: .4em solid rgba(0,0,0, .8);
+    &:nth-child(1) {
+      max-width: 55%;
+      margin-bottom: 20px;
+    }
+    &:nth-child(2) {
+      max-width: 65%;
+    }
+  }
 }
 #intro span {
   color: #efefef;
