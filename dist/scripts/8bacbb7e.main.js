@@ -143,3 +143,21 @@ AHT.Router.map(function () {
 
 
 })();
+
+(function() {
+
+window.fireEvent = function(event) {
+  var evt;
+  if (document.createEventObject) {
+    evt = document.createEventObject();
+    return document.fireEvent('on' + event, evt);
+  }
+  else {
+    evt = document.createEvent("HTMLEvents");
+    evt.initEvent(event, true, true);
+    return !document.dispatchEvent(evt);
+  }
+};
+
+
+})();
