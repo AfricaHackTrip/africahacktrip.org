@@ -111,7 +111,7 @@ window.Hackmap = {
   },
 
   moveToOverview: function() {
-   this.m.setView([-3.50415, 25.679931], 5, {animate: true});
+   this.m.setView([-3.50415, 20.679931], 5, {animate: true});
   },
 
   addCountryLabel: function(cityName, index) {
