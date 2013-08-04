@@ -1,7 +1,9 @@
 AHT.KenyaView = Ember.View.extend({
 
     didInsertElement: function() {
-      window.Hackmap.moveToCity('nairobi');
+      setTimeout(function() {
+        window.Hackmap.moveToCity('nairobi');
+      }, 0);
     }
 
 });

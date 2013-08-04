@@ -1,7 +1,9 @@
 AHT.UgandaView = Ember.View.extend({
 
     didInsertElement: function() {
-      window.Hackmap.moveToCity('kampala');
+      setTimeout(function() {
+        window.Hackmap.moveToCity('kampala');
+      }, 0);
     }
 
 });
