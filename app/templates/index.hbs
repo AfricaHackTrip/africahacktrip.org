@@ -1,1 +1,87 @@
-<h1>index.hbs</h1>
+<h1 id="tagline">4 Weeks // 4 Countries // 8 Hackers</h1>
+
+<div id="intro">
+  <p>
+    <span>
+      We are a group of developers &amp; designers from Europe, <br />
+      curious about the emerging African tech hubs.
+    </span>
+  </p>
+  <p>
+    <span>
+      We decided to explore the African tech communities ourselves and<br/>
+      share our impressions with a video documentary.
+    </span>
+  </p>
+  <p>
+    <span>Our goal is to kick off a continuous exchange with tech communities in Africa.</span>
+  </p>
+</div>
+
+<div id="teaser" class="row">
+  <div class="col-lg-6">
+    <iframe src="http://player.vimeo.com/video/70288316" id="teaser-video" width="500" height="281" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+  </div>
+  <div class="col-lg-6">
+    Publicity is a main goal of AfricaHackTrip. We want to get everyone in the tech community excited and enable cooperation, so we will blog and tweet, trying to reach as many people as possible. Most of all, we will make a movie. Actually, many small movies and one big one.
+  </div>
+</div>
+
+
+<div id="locations">
+  <h3>When</h3>
+  <p>Sep 24 - Oct 27 2013</p>
+
+  <h3>Locations</h3>
+  <dl>
+    <dt>Sep 24 - Oct 01</dt> 
+    <dd>
+       {{#linkTo kenya tagName="li"}}
+          <a {{bindAttr href="view.href"}}>Nairobi, Kenya</a>
+        {{/linkTo}}
+    </dd>
+    <dt>Oct 02 - Oct 08</dt> 
+    <dd>
+       {{#linkTo uganda tagName="li"}}
+          <a {{bindAttr href="view.href"}}>Kampala, Uganda</a>
+        {{/linkTo}}
+    </dd>
+    <dt>Oct 09 - Oct 15</dt>
+    <dd>
+       {{#linkTo rwanda tagName="li"}}
+          <a {{bindAttr href="view.href"}}>Kigali, Rwanda</a>
+        {{/linkTo}}
+    </dd>
+    <dt>Oct 16 - Oct 23</dt> 
+    <dd>
+       {{#linkTo tanzania tagName="li"}}
+          <a {{bindAttr href="view.href"}}>Der Es Salaam, Tanzania</a>
+        {{/linkTo}}
+    </dd>
+    <dt>Oct 24/25</dt>
+    <dd>
+       {{#linkTo kenya tagName="li"}}
+          <a {{bindAttr href="view.href"}}>Demo Africa, Nairobi, Kenya</a>
+        {{/linkTo}}
+    </dd>
+  </dl>
+</div>
+
+<div id="participants">
+  <h3>Participants</h3>
+  <ul class="participants">
+    <li><a href="{{ page.root }}about.html#Gregor_Martynus"><img src="http://www.gravatar.com/avatar/24fc194843a71f10949be18d5a692682?s=160" alt="Gregor" /></a></li>
+    <li><a href="{{ page.root }}about.html#Vicy_Wenzelman"><img src="{{ page.root_path }}assets/images/vicy_80.png" alt="Vicy" /></a></li>
+    <li><a href="{{ page.root }}about.html#Michael_Bumann"><img src="http://www.gravatar.com/avatar/22c07ebd300e450d75e9e9ee9e974793?s=160" alt="Michael" /></a></li>
+    <li><a href="{{ page.root }}about.html#Alexander_Lang"><img src="http://www.gravatar.com/avatar/f29d8b3a51d303cc54b20932fa6c2639?s=160" alt="Alex" /></a></li>
+    <li><a href="{{ page.root }}about.html#Martin_Stadler"><img src="{{ page.root }}assets/images/xmartin.jpg" alt="Martin" /></a></li>
+    <li><a href="{{ page.root }}about.html#Jan-C_Borchardt"><img src="http://www.gravatar.com/avatar/2fd3f4d5d762955e5b603794a888fa97?s=160" alt="Jan" /></a></li>
+    <li><a href="{{ page.root }}about.html#Sebastian_Kippe"><img src="http://www.gravatar.com/avatar/ca68e41e1ab60bd90f18384ef4b47f2a?s=160" alt="Sebastian" /></a></li>
+    <li><a href="{{ page.root }}about.html#Tobias_Kraentzer"><img src="http://www.gravatar.com/avatar/28bafcdc7327c4570e7cad5eecbebbab?s=160" alt="Tobias" /></a></li>
+  </ul>
+</div>
+
+<div id="supporters">
+  <h3>Supporters</h3>
+  github, geekphone, etc
+</div>

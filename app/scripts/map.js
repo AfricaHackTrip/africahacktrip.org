@@ -84,7 +84,7 @@ window.Hackmap = {
 					return {
 						weight: 1,
 						fillOpacity: 0.1,
-						color: "#00ff00"
+						color: "#8b8b8b"
 					};
 				},
 				onEachFeature: function(feature, layer) {
@@ -111,7 +111,7 @@ window.Hackmap = {
   },
 
   moveToOverview: function() {
-   this.m.setView([-2.350415, 35.679931], 5, {animate: true});
+   this.m.setView([-3.50415, 25.679931], 5, {animate: true});
   },
 
   addCountryLabel: function(cityName, index) {
