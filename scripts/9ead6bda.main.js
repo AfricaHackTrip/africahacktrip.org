@@ -73,7 +73,9 @@ AHT.IndexView = Ember.View.extend({
 AHT.KenyaView = Ember.View.extend({
 
     didInsertElement: function() {
-      window.Hackmap.moveToCity('nairobi');
+      setTimeout(function() {
+        window.Hackmap.moveToCity('nairobi');
+      }, 0);
     }
 
 });
@@ -86,7 +88,9 @@ AHT.KenyaView = Ember.View.extend({
 AHT.RwandaView = Ember.View.extend({
 
     didInsertElement: function() {
-      window.Hackmap.moveToCity('kigali');
+      setTimeout(function() {
+        window.Hackmap.moveToCity('kigali');
+      }, 0);
     }
 
 });
@@ -99,7 +103,9 @@ AHT.RwandaView = Ember.View.extend({
 AHT.TanzaniaView = Ember.View.extend({
 
     didInsertElement: function() {
-      window.Hackmap.moveToCity('daressalaam');
+      setTimeout(function() {
+        window.Hackmap.moveToCity('daressalaam');
+      }, 0);
     }
 
 });
@@ -112,7 +118,9 @@ AHT.TanzaniaView = Ember.View.extend({
 AHT.UgandaView = Ember.View.extend({
 
     didInsertElement: function() {
-      window.Hackmap.moveToCity('kampala');
+      setTimeout(function() {
+        window.Hackmap.moveToCity('kampala');
+      }, 0);
     }
 
 });
