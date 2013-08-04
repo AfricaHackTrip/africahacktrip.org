@@ -1,23 +1,43 @@
 <div class="container-full">
   <div class="navbar navbar-inverse">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+
     <a class="navbar-brand" href="#">AfricaHackTrip</a>
-    <ul class="nav navbar-nav">
-      {{#linkTo index tagName="li"}}
-        <a {{bindAttr href="view.href"}}>Home</a>
-      {{/linkTo}}
-      {{#linkTo kenya tagName="li"}}
-        <a {{bindAttr href="view.href"}}>Kenya</a>
-      {{/linkTo}}
-      {{#linkTo uganda tagName="li"}}
-        <a {{bindAttr href="view.href"}}>Uganda</a>
-      {{/linkTo}}
-      {{#linkTo rwanda tagName="li"}}
-        <a {{bindAttr href="view.href"}}>Rwanda</a>
-      {{/linkTo}}
-      {{#linkTo tanzania tagName="li"}}
-        <a {{bindAttr href="view.href"}}>Tanzania</a>
-      {{/linkTo}}
-    </ul>
+    <div class="nav-collapse collapse navbar-responsive-collapse">
+      <ul class="nav navbar-nav">
+        {{#linkTo index tagName="li"}}
+          <a {{bindAttr href="view.href"}}>Home</a>
+        {{/linkTo}}
+        {{#linkTo kenya tagName="li"}}
+          <a {{bindAttr href="view.href"}}>Kenya</a>
+        {{/linkTo}}
+        {{#linkTo uganda tagName="li"}}
+          <a {{bindAttr href="view.href"}}>Uganda</a>
+        {{/linkTo}}
+        {{#linkTo rwanda tagName="li"}}
+          <a {{bindAttr href="view.href"}}>Rwanda</a>
+        {{/linkTo}}
+        {{#linkTo tanzania tagName="li"}}
+          <a {{bindAttr href="view.href"}}>Tanzania</a>
+        {{/linkTo}}
+      </ul>
+
+      <ul class="nav navbar-nav pull-right">
+        {{#linkTo about-us tagName="li"}}
+          <a {{bindAttr href="view.href"}}>About us</a>
+        {{/linkTo}}
+        {{#linkTo supporters tagName="li"}}
+          <a {{bindAttr href="view.href"}}>Supporters</a>
+        {{/linkTo}}
+        {{#linkTo contact tagName="li"}}
+          <a {{bindAttr href="view.href"}}>Contact</a>
+        {{/linkTo}}
+      </ul>
+    </div>
   </div>
 </div>
 <div id="bigfatmap"></div>
