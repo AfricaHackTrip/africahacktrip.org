@@ -17,7 +17,11 @@
     We're happy to announce that GitHub is sponsoring all 4 AfricaHackTrip Events. We &lt;3 you!
   </p>
 
-  <p>Interested in sponsoring the AfricaHackTrip? Find out more on our <a href="sponsoring.html">Sponsoring page</a>.</p>
+  <p>Interested in sponsoring the AfricaHackTrip? Find out more on our 
+    {{#linkTo sponsoring tagName="span"}}
+      <a {{bindAttr href="view.href"}}>Sponsoring page</a>.
+    {{/linkTo}}
+  </p>
 
   <h2>Thanks</h2>
 
