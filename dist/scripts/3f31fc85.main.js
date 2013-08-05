@@ -27,6 +27,19 @@ AHT.KenyaRoute = Ember.Route.extend({
 
 (function() {
 
+AHT.AboutUsView = Ember.View.extend({
+
+    didInsertElement: function() {
+      $('html, body').animate({scrollTop:0});
+    }
+
+});
+
+
+})();
+
+(function() {
+
 AHT.ApplicationView = Ember.View.extend({
 
     didInsertElement: function() {
@@ -61,6 +74,7 @@ AHT.IndexView = Ember.View.extend({
 
     didInsertElement: function() {
       window.Hackmap.moveToOverview();
+      $('html, body').animate({scrollTop:0});
     }
 
 });
@@ -76,6 +90,7 @@ AHT.KenyaView = Ember.View.extend({
       setTimeout(function() {
         window.Hackmap.moveToCity('nairobi');
       }, 0);
+      $('html, body').animate({scrollTop:0});
     }
 
 });
@@ -91,6 +106,33 @@ AHT.RwandaView = Ember.View.extend({
       setTimeout(function() {
         window.Hackmap.moveToCity('kigali');
       }, 0);
+      $('html, body').animate({scrollTop:0});
+    }
+
+});
+
+
+})();
+
+(function() {
+
+AHT.SponsoringView = Ember.View.extend({
+
+    didInsertElement: function() {
+      $('html, body').animate({scrollTop:0});
+    }
+
+});
+
+
+})();
+
+(function() {
+
+AHT.SupportersView = Ember.View.extend({
+
+    didInsertElement: function() {
+      $('html, body').animate({scrollTop:0});
     }
 
 });
@@ -106,6 +148,7 @@ AHT.TanzaniaView = Ember.View.extend({
       setTimeout(function() {
         window.Hackmap.moveToCity('daressalaam');
       }, 0);
+      $('html, body').animate({scrollTop:0});
     }
 
 });
@@ -121,6 +164,7 @@ AHT.UgandaView = Ember.View.extend({
       setTimeout(function() {
         window.Hackmap.moveToCity('kampala');
       }, 0);
+      $('html, body').animate({scrollTop:0});
     }
 
 });
@@ -136,7 +180,6 @@ AHT.Router.map(function () {
   this.route('rwanda',   { path: "/rwanda" });
   this.route('tanzania', { path: "/tanzania" });
 
-  this.route('contact', { path: "/contact" });
   this.route('about-us', { path: "/about-us" });
   this.route('supporters', { path: "/supporters" });
   this.route('sponsoring', { path: "/sponsoring" });
