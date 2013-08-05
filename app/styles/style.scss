@@ -147,6 +147,7 @@ aside {
   display: block;
   float: right;
   width: 23%;
+  padding-bottom: 40px;
   h1 {
     font-size: 26px;
     font-weight: bold;
@@ -265,6 +266,28 @@ h1#tagline {
 }
 #locations {
   clear: both;
+}
+
+aside .flag {
+  margin-top: 30px;
+  width: 100%;
+  height: 100px;
+}
+.kenya aside .flag {
+  background: url(/images/flags/kenya.png) no-repeat;
+  background-size: contain;
+}
+.uganda aside .flag {
+  background: url(/images/flags/uganda.png) no-repeat;
+  background-size: contain;
+}
+.rwanda aside .flag {
+  background: url(/images/flags/rwanda.png) no-repeat;
+  background-size: contain;
+}
+.tanzania aside .flag {
+  background: url(/images/flags/tanzania.png) no-repeat;
+  background-size: contain;
 }
 
 .about-us, .supporters, .contact, .sponsoring {
