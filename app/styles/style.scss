@@ -307,15 +307,3 @@ aside .flag {
   background: url(/images/flags/tanzania.png) no-repeat;
   background-size: contain;
 }
-
-.about-us, .supporters, .contact, .sponsoring {
-  #bigfatmap {
-    display: none;
-  }
-  .container.content {
-    padding-top: 40px;
-    // position: absolute;
-    // top: 200px;
-    // z-index: 99999999999999999;
-  }
-}
