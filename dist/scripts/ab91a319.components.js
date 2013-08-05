@@ -50076,8 +50076,10 @@ window.Hackmap = {
     self.m = L.map('bigfatmap', {
       center: [-2.350415, 35.679931],
       zoom: 5,
-      scrollWheelZoom: false
+      scrollWheelZoom: false,
+      zoomControl: false
     });
+    self.m.addControl( L.control.zoom({position: 'bottomleft'}) );
     self.m.attributionControl.setPrefix('');
 
     L.tileLayer('https://{s}.tiles.mapbox.com/v3/skddc.map-9wkh1xoj/{z}/{x}/{y}.png', {

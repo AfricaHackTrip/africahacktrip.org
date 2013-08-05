@@ -110,7 +110,7 @@ function program13(depth0,data) {
   data.buffer.push(escapeExpression(helpers.bindAttr.call(depth0, {hash:{
     'class': ("currentPath")
   },contexts:[],types:[],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push(">\n<div class=\"container-full\">\n  <div class=\"navbar navbar-fixed-top navbar-inverse\">\n    <button type=\"button\" class=\"navbar-toggle\" data-toggle=\"collapse\" data-target=\".navbar-responsive-collapse\">\n      <span class=\"icon-bar\"></span>\n      <span class=\"icon-bar\"></span>\n      <span class=\"icon-bar\"></span>\n    </button>\n\n    <a class=\"navbar-brand\" href=\"#\">AfricaHackTrip</a>\n    <div class=\"nav-collapse collapse navbar-responsive-collapse\">\n      <ul class=\"nav navbar-nav\">\n        ");
+  data.buffer.push(">\n<div class=\"container-full\">\n  <div class=\"navbar navbar-fixed-top navbar-inverse\">\n    <!--<div class=\"container\">-->\n    <button type=\"button\" class=\"navbar-toggle\" data-toggle=\"collapse\" data-target=\".navbar-responsive-collapse\">\n      <span class=\"icon-bar\"></span>\n      <span class=\"icon-bar\"></span>\n      <span class=\"icon-bar\"></span>\n    </button>\n\n    <a class=\"navbar-brand\" href=\"#\">AfricaHackTrip</a>\n    <div class=\"nav-collapse collapse navbar-responsive-collapse\">\n      <ul class=\"nav navbar-nav\">\n        ");
   hashContexts = {'tagName': depth0};
   hashTypes = {'tagName': "STRING"};
   options = {hash:{
@@ -166,7 +166,7 @@ function program13(depth0,data) {
   },inverse:self.noop,fn:self.program(13, program13, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
   stack2 = ((stack1 = helpers.linkTo),stack1 ? stack1.call(depth0, "supporters", options) : helperMissing.call(depth0, "linkTo", "supporters", options));
   if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
-  data.buffer.push("\n        <li>\n          <a href=\"https://blog.africahacktrip.org\">Blog</a>\n        </li>\n      </ul>\n    </div>\n  </div>\n</div>\n<div id=\"bigfatmap\"></div>\n<div class=\"container content\">\n  ");
+  data.buffer.push("\n        <li>\n          <a href=\"https://blog.africahacktrip.org\">Blog</a>\n        </li>\n      </ul>\n    </div>\n    <!--</div>-->\n  </div>\n</div>\n<div id=\"bigfatmap\"></div>\n<div class=\"container content\">\n  ");
   hashTypes = {};
   hashContexts = {};
   data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "outlet", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
@@ -255,7 +255,7 @@ function program9(depth0,data) {
   return buffer;
   }
 
-  data.buffer.push("<h1 id=\"tagline\">4 Weeks // 4 Countries // 8 Hackers</h1>\n\n<div id=\"intro\">\n  <p>\n    <span>We are a group of developers &amp; designers from Europe, curious about the emerging African tech hubs.</span>\n  </p>\n  <p>\n    <span>We decided to explore the African tech communities ourselves and share our impressions on the Web and with a video documentary.</span>\n  </p>\n</div>\n\n<div id=\"teaser\" class=\"row\">\n  <div class=\"col-lg-6\">\n    <iframe src=\"http://player.vimeo.com/video/70288316\" id=\"teaser-video\" width=\"500\" height=\"281\" frameborder=\"0\" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>\n  </div>\n  <div class=\"col-lg-6\">\n    Publicity is a main goal of AfricaHackTrip. We want to get everyone in the tech community excited and enable cooperation, so we will blog and tweet, trying to reach as many people as possible. Most of all, we will make a movie. Actually, many small movies and one big one.\n  </div>\n</div>\n\n\n<div id=\"locations\">\n  <h3>When</h3>\n  <p>Sep 24 - Oct 27 2013</p>\n\n  <h3>Locations</h3>\n  <dl>\n    <dt>Sep 24 - Oct 01</dt> \n    <dd>\n       ");
+  data.buffer.push("<h1 id=\"tagline\">4 Weeks // 4 Countries // 8 Hackers</h1>\n\n<div id=\"intro\">\n  <p>\n    <span>We are a group of developers &amp; designers from Europe, curious about the emerging African tech hubs.</span>\n  </p>\n  <p>\n    <span>We decided to explore the African tech communities ourselves and share our impressions on the Web and with a video documentary.</span>\n  </p>\n</div>\n\n<div id=\"teaser\" class=\"row\">\n  <div class=\"col-lg-6\">\n    <iframe src=\"http://player.vimeo.com/video/70288316\" id=\"teaser-video\" width=\"500\" height=\"281\" frameborder=\"0\" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>\n  </div>\n  <div class=\"col-lg-6\">\n<!--\n    Publicity is a main goal of AfricaHackTrip. We want to get everyone in the tech community excited and enable cooperation, so we will blog and tweet, trying to reach as many people as possible. Most of all, we will make a movie. Actually, many small movies and one big one.\n    -->\n  </div>\n</div>\n\n<!--\n<div id=\"locations\">\n  <h3>When</h3>\n  <p>Sep 24 - Oct 27 2013</p>\n\n  <h3>Locations</h3>\n  <dl>\n    <dt>Sep 24 - Oct 01</dt> \n    <dd>\n       ");
   hashContexts = {'tagName': depth0};
   hashTypes = {'tagName': "STRING"};
   options = {hash:{
@@ -335,7 +335,7 @@ function program9(depth0,data) {
   hashTypes = {};
   hashContexts = {};
   data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "page.root", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push("about.html#Tobias_Kraentzer\"><img src=\"http://www.gravatar.com/avatar/28bafcdc7327c4570e7cad5eecbebbab?s=160\" alt=\"Tobias\" /></a></li>\n  </ul>\n</div>\n\n<div id=\"supporters\">\n  <h3>Supporters</h3>\n  github, geekphone, etc\n</div>\n");
+  data.buffer.push("about.html#Tobias_Kraentzer\"><img src=\"http://www.gravatar.com/avatar/28bafcdc7327c4570e7cad5eecbebbab?s=160\" alt=\"Tobias\" /></a></li>\n  </ul>\n</div>\n\n<div id=\"supporters\">\n  <h3>Supporters</h3>\n  github, geekphone, etc\n</div>\n-->\n");
   return buffer;
   
 });
