@@ -1,7 +1,7 @@
 
 #The_team article,
   #We_do article {
-    margin: 0 0 4em;
+    padding: 20px 0;
 }
 #The_team header,
   #We_do header {
@@ -119,7 +119,7 @@
 }
 #The_team article > div {
   display: none;
-  padding: 40px 0 40px 100px;
+  padding: 40px 0 0 100px;
 }
 #The_team article > div p,
 #The_team article > div ul {
@@ -131,16 +131,25 @@
 }
 #The_team article p {
   margin-top: 0;
+  clear: right;
 }
 #The_team article ul,
 #The_team article li {
   margin: 0;
+  list-style: none;
+}
+#The_team article li {
+  clear: both;
 }
 #The_team article h4 {
   font-weight: bold;
+  font-family: Ubuntu, sans-serif;
+  font-size: 14px;
+  line-height: 1.6em;
   float: left;
   width: 180px;
   margin: 0 0 0 -200px;
+  padding-bottom: 1em;
   text-align: right;
 }
 

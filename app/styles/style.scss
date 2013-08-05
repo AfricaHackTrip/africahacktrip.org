@@ -175,6 +175,13 @@ main {
     padding-bottom: 5px;
     border-bottom: 2px solid $text-color;
   }
+  h2 {
+    font-size: 20px;
+    font-weight: normal;
+    margin: 0 0 20px 0;
+    padding: 25px 0 5px 0;
+    border-bottom: 1px solid $text-color;
+  }
   p {
     line-height: 1.6em;
   }
