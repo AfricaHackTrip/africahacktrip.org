@@ -4,6 +4,7 @@ AHT.RwandaView = Ember.View.extend({
       setTimeout(function() {
         window.Hackmap.moveToCity('kigali');
       }, 0);
+      $('html, body').animate({scrollTop:0});
     }
 
 });

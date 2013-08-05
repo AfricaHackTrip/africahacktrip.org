@@ -4,6 +4,7 @@ AHT.TanzaniaView = Ember.View.extend({
       setTimeout(function() {
         window.Hackmap.moveToCity('daressalaam');
       }, 0);
+      $('html, body').animate({scrollTop:0});
     }
 
 });
