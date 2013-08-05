@@ -1,3 +1,4 @@
+<div {{bindAttr class="currentPath"}}>
 <div class="container-full">
   <div class="navbar navbar-fixed-top navbar-inverse">
     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
@@ -33,9 +34,9 @@
         {{#linkTo supporters tagName="li"}}
           <a {{bindAttr href="view.href"}}>Supporters</a>
         {{/linkTo}}
-        {{#linkTo contact tagName="li"}}
-          <a {{bindAttr href="view.href"}}>Contact</a>
-        {{/linkTo}}
+        <li>
+          <a href="https://blog.africahacktrip.org">Blog</a>
+        </li>
       </ul>
     </div>
   </div>
@@ -44,7 +45,7 @@
 <div class="container content">
   {{outlet}}
 </div>
-
+</div>
 <footer>
   <div class="container">
     <div class="row">

@@ -12,6 +12,15 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   color: $text-color;
 }
 
+a, a:link, a:visited {
+  color: green;
+}
+
+a:hover {
+  color: green;
+  cursor: pointer;
+}
+
 .container-full {
   max-width: 100%;
   width: 100%;
@@ -129,7 +138,18 @@ main {
     padding-bottom: 5px;
     border-bottom: 2px solid $text-color;
   }
-
+  p {
+    line-height: 1.6em;
+  }
+  section {
+    padding-bottom: 30px;
+    h1 {
+      margin: 0 0 20px 0;
+    }
+    &:last-of-type {
+      padding-bottom: 0;
+    }
+  }
   .lanyrd-schedule-embed {
     h2 {
       font-size: 14px;
@@ -167,7 +187,7 @@ main {
 // }
 
 .content {
-  color: black;  
+  color: black;
 }
 h1#tagline {
   position: absolute;
@@ -209,4 +229,16 @@ h1#tagline {
 }
 #locations {
   clear: both;
+}
+
+.about-us, .supporters, .contact, .sponsoring {
+  #bigfatmap {
+    display: none;
+  }
+  .container.content {
+    padding-top: 40px;
+    // position: absolute;
+    // top: 200px;
+    // z-index: 99999999999999999;
+  }
 }
