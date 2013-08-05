@@ -90,13 +90,11 @@ window.Hackmap = {
 				onEachFeature: function(feature, layer) {
 					layer.on("mouseover", function(e) {
 						layer.setStyle({
-							color: "#00ff00",
 							weight: 2
 						});
 					});
 					layer.on("mouseout", function(e) {
 						layer.setStyle({
-							color: "#ccc",
 							weight: 1
 						});
 					});
