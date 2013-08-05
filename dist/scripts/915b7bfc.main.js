@@ -31,6 +31,8 @@ AHT.AboutUsView = Ember.View.extend({
 
     didInsertElement: function() {
       $('html, body').animate({scrollTop:0});
+      window.Hackmap.setHeight('100px');
+
       $("#The_team .toggle").on("click", function(e) {
         e.preventDefault();
         $("#The_team article").removeClass("more");
@@ -39,7 +41,6 @@ AHT.AboutUsView = Ember.View.extend({
           scrollTop: $(this).closest("article").offset().top - 50
         }, 300);
       });
-
     }
 
 });
@@ -83,6 +84,7 @@ AHT.IndexView = Ember.View.extend({
 
     didInsertElement: function() {
       window.Hackmap.moveToOverview();
+      window.Hackmap.setHeight('400px');
       $('html, body').animate({scrollTop:0});
     }
 
@@ -98,6 +100,7 @@ AHT.KenyaView = Ember.View.extend({
     didInsertElement: function() {
       setTimeout(function() {
         window.Hackmap.moveToCity('nairobi');
+        window.Hackmap.setHeight('400px');
       }, 0);
       $('html, body').animate({scrollTop:0});
     }
@@ -114,6 +117,7 @@ AHT.RwandaView = Ember.View.extend({
     didInsertElement: function() {
       setTimeout(function() {
         window.Hackmap.moveToCity('kigali');
+        window.Hackmap.setHeight('400px');
       }, 0);
       $('html, body').animate({scrollTop:0});
     }
@@ -129,6 +133,7 @@ AHT.SponsoringView = Ember.View.extend({
 
     didInsertElement: function() {
       $('html, body').animate({scrollTop:0});
+      window.Hackmap.setHeight('100px');
     }
 
 });
@@ -142,6 +147,7 @@ AHT.SupportersView = Ember.View.extend({
 
     didInsertElement: function() {
       $('html, body').animate({scrollTop:0});
+      window.Hackmap.setHeight('100px');
     }
 
 });
@@ -156,6 +162,7 @@ AHT.TanzaniaView = Ember.View.extend({
     didInsertElement: function() {
       setTimeout(function() {
         window.Hackmap.moveToCity('daressalaam');
+        window.Hackmap.setHeight('400px');
       }, 0);
       $('html, body').animate({scrollTop:0});
     }
@@ -172,6 +179,7 @@ AHT.UgandaView = Ember.View.extend({
     didInsertElement: function() {
       setTimeout(function() {
         window.Hackmap.moveToCity('kampala');
+        window.Hackmap.setHeight('400px');
       }, 0);
       $('html, body').animate({scrollTop:0});
     }

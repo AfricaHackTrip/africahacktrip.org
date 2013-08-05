@@ -50131,6 +50131,10 @@ window.Hackmap = {
       .bindLabel(city.label, { noHide: true })
       .addTo(this.m)
       .showLabel();
+  },
+
+  setHeight: function(value) {
+    $('#bigfatmap').animate({height: value});
   }
 
 };
