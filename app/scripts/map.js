@@ -37,21 +37,25 @@ window.Hackmap = {
 
   cities: {
     nairobi: {
+      country: "kenya",
       lat: -1.294903,
       lng: 36.824005,
       label: '09/24-10/01'
     },
     kampala: {
+      country: "uganda",
       lat: 0.312079,
       lng: 32.581276,
       label: '10/02-10/08'
     },
     kigali: {
+      country: "rwanda",
       lat: -1.952099,
       lng: 30.059570,
       label: '10/09-10/15'
     },
     daressalaam: {
+      country: "tanzania",
       lat: -6.826216,
       lng: 39.269149,
       label: '10/16-10/23'
@@ -69,6 +73,9 @@ window.Hackmap = {
       zoomControl: false,
       tap: true
     });
+    if($(document).innerWidth() < 800) {
+      self.m.dragging.disable();
+    }
     self.m.addControl( L.control.zoom({position: 'bottomleft'}) );
     self.m.attributionControl.setPrefix('');
 
@@ -79,31 +86,10 @@ window.Hackmap = {
 
     $.each(this.cities, function(cityName, city) {
       self.addCountryLabel(cityName, city);
+      if($(document).innerWidth() > 800) {
+       //self.addCountryOverlay(city.country);
+      }
     });
-
-		$.each(["UgandaOutline", "KenyaOutline", "RwandaOutline", "TanzaniaOutline"], function(index, outline) {
-			L.geoJson(window[outline], {
-				style: function (feature) {
-					return {
-						weight: 1,
-						fillOpacity: 0.1,
-						color: "#8b8b8b"
-					};
-				},
-				onEachFeature: function(feature, layer) {
-					layer.on("mouseover", function(e) {
-						layer.setStyle({
-							weight: 2
-						});
-					});
-					layer.on("mouseout", function(e) {
-						layer.setStyle({
-							weight: 1
-						});
-					});
-				}
-			}).addTo(self.m);
-		});
   },
 
   moveToCity: function(cityName) {
@@ -112,10 +98,10 @@ window.Hackmap = {
   },
 
   moveToOverview: function() {
-    if($(document).innerWidth() < 800) {
-      this.m.setView([-3.50415, 34.84863], 5, {animate: true});
-    } else {
+    if($(document).innerWidth() > 800) {
       this.m.setView([-3.50415, 20.679931], 5, {animate: true});
+    } else {
+      this.m.setView([-3.50415, 34.84863], 5, {animate: true});
     }
   },
 
@@ -129,6 +115,30 @@ window.Hackmap = {
 
   setHeight: function(value) {
     $('#bigfatmap').animate({height: value});
-  }
+  },
 
+  addCountryOverlay: function(country) {
+    var outline = country.charAt(0).toUpperCase() + country.slice(1) + "Outline";
+    var layer = L.geoJson(window[outline], {
+		  style: function (feature) {
+				return {
+					weight: 1,
+					fillOpacity: 0.1,
+					color: "#8b8b8b"
+				};
+			},
+			onEachFeature: function(feature, layer) {
+				layer.on("mouseover", function(e) {
+					layer.setStyle({
+						weight: 2
+					});
+				});
+				layer.on("mouseout", function(e) {
+					layer.setStyle({
+						weight: 1
+					});
+				});
+			}
+		}).addTo(Hackmap.m);
+  }
 };
