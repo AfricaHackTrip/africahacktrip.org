@@ -280,6 +280,22 @@ main {
   color: black;
 }
 
+#intro {
+	p {
+    font-size: 1.4em;
+    line-height: 2em;
+    margin: 0;
+  }
+}
+#intro span {
+  padding: .4em .4em .45em 0;
+}
+h1#tagline {
+  color: #efefef;
+  font-size: 28px;
+  color: #00ff00;
+}
+
 @media (min-width: 800px) {
 	h1#tagline {
 		position: absolute;
@@ -293,7 +309,7 @@ main {
 			background: rgba(0,0,0, .8);
 		}
 		p {
-	    border-left: .4em solid rgba(0,0,0, .8);		
+	    border-left: .4em solid rgba(0,0,0,0.8);
 			&:nth-child(1) {
 				max-width: 55%;
 				margin-bottom: 20px;
@@ -304,10 +320,38 @@ main {
 		}
 	}
 }
-h1#tagline {
-  color: #efefef;
-  font-size: 28px;
-  color: #00FF00;
+@media (max-width: 800px) {
+  h1#tagline {
+    color: #fff;
+    background: #000;
+    font-size: 20px;
+    line-height: 1.4em;
+    padding: 10px 15px;
+    margin-top: -30px;
+    margin-bottom: 20px;
+  }
+	#intro {
+		width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 20px;
+    p {
+      font-size: 18px;
+      line-height: 1.6em;
+      margin-bottom: 10px;
+    }
+  }
+  #teaser {
+    iframe {
+      margin-bottom: 20px;
+      width: 300px;
+      height: 169px;
+    }
+    p {
+      font-size: 14px;
+      line-height: 1.6em;
+    }
+  }
 }
 #teaser {
   font-size: 18px;
@@ -317,16 +361,6 @@ h1#tagline {
 #teaser-video {
   float: left;
   margin-right: 15px;
-}
-#intro {
-	p {
-    font-size: 1.4em;
-    line-height: 2em;
-    margin: 0;
-  }
-}
-#intro span {
-  padding: .4em .4em .45em 0;
 }
 #locations {
   clear: both;
