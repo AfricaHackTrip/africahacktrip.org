@@ -50122,7 +50122,11 @@ window.Hackmap = {
   },
 
   moveToOverview: function() {
-   this.m.setView([-3.50415, 20.679931], 5, {animate: true});
+    if($(document).innerWidth() < 800) {
+      this.m.setView([-3.50415, 34.84863], 5, {animate: true});
+    } else {
+      this.m.setView([-3.50415, 20.679931], 5, {animate: true});
+    }
   },
 
   addCountryLabel: function(cityName, index) {

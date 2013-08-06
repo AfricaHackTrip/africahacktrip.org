@@ -30,6 +30,8 @@ AHT.KenyaRoute = Ember.Route.extend({
 AHT.AboutUsView = Ember.View.extend({
 
     didInsertElement: function() {
+      $(".nav-collapse").collapse("hide");
+
       $('html, body').animate({scrollTop:0});
       window.Hackmap.setHeight('100px');
 
@@ -53,6 +55,7 @@ AHT.AboutUsView = Ember.View.extend({
 AHT.ApplicationView = Ember.View.extend({
 
     didInsertElement: function() {
+      $(".nav-collapse").collapse("hide");
       window.Hackmap.initializeMap();
     }
 
@@ -83,7 +86,9 @@ AHT.ApplicationView = Ember.View.extend({
 AHT.IndexView = Ember.View.extend({
 
     didInsertElement: function() {
+      $(".nav-collapse").collapse("hide");
       window.Hackmap.moveToOverview();
+      $(window).on("resize", function(e) { console.log("foo");window.Hackmap.moveToOverview(); });
       window.Hackmap.setHeight('400px');
       $('html, body').animate({scrollTop:0});
     }
@@ -98,6 +103,7 @@ AHT.IndexView = Ember.View.extend({
 AHT.KenyaView = Ember.View.extend({
 
     didInsertElement: function() {
+      $(".nav-collapse").collapse("hide");
       setTimeout(function() {
         window.Hackmap.moveToCity('nairobi');
         window.Hackmap.setHeight('400px');
@@ -115,6 +121,7 @@ AHT.KenyaView = Ember.View.extend({
 AHT.RwandaView = Ember.View.extend({
 
     didInsertElement: function() {
+      $(".nav-collapse").collapse("hide");
       setTimeout(function() {
         window.Hackmap.moveToCity('kigali');
         window.Hackmap.setHeight('400px');
@@ -132,6 +139,7 @@ AHT.RwandaView = Ember.View.extend({
 AHT.SponsoringView = Ember.View.extend({
 
     didInsertElement: function() {
+      $(".nav-collapse").collapse("hide");
       $('html, body').animate({scrollTop:0});
       window.Hackmap.setHeight('100px');
     }
@@ -146,6 +154,7 @@ AHT.SponsoringView = Ember.View.extend({
 AHT.SupportersView = Ember.View.extend({
 
     didInsertElement: function() {
+      $(".nav-collapse").collapse("hide");
       $('html, body').animate({scrollTop:0});
       window.Hackmap.setHeight('100px');
     }
@@ -160,6 +169,7 @@ AHT.SupportersView = Ember.View.extend({
 AHT.TanzaniaView = Ember.View.extend({
 
     didInsertElement: function() {
+      $(".nav-collapse").collapse("hide");
       setTimeout(function() {
         window.Hackmap.moveToCity('daressalaam');
         window.Hackmap.setHeight('400px');
@@ -177,6 +187,7 @@ AHT.TanzaniaView = Ember.View.extend({
 AHT.UgandaView = Ember.View.extend({
 
     didInsertElement: function() {
+      $(".nav-collapse").collapse("hide");
       setTimeout(function() {
         window.Hackmap.moveToCity('kampala');
         window.Hackmap.setHeight('400px');

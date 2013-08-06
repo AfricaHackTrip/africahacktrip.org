@@ -193,69 +193,56 @@ helpers = helpers || Ember.Handlebars.helpers; data = data || {};
 function program1(depth0,data) {
   
   var buffer = '', hashContexts, hashTypes;
-  data.buffer.push("\n          <a ");
+  data.buffer.push("\n            <a ");
   hashContexts = {'href': depth0};
   hashTypes = {'href': "STRING"};
   data.buffer.push(escapeExpression(helpers.bindAttr.call(depth0, {hash:{
     'href': ("view.href")
   },contexts:[],types:[],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push(">Nairobi, Kenya</a>\n        ");
+  data.buffer.push(">Nairobi, Kenya</a>\n          ");
   return buffer;
   }
 
 function program3(depth0,data) {
   
   var buffer = '', hashContexts, hashTypes;
-  data.buffer.push("\n          <a ");
+  data.buffer.push("\n            <a ");
   hashContexts = {'href': depth0};
   hashTypes = {'href': "STRING"};
   data.buffer.push(escapeExpression(helpers.bindAttr.call(depth0, {hash:{
     'href': ("view.href")
   },contexts:[],types:[],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push(">Kampala, Uganda</a>\n        ");
+  data.buffer.push(">Kampala, Uganda</a>\n          ");
   return buffer;
   }
 
 function program5(depth0,data) {
   
   var buffer = '', hashContexts, hashTypes;
-  data.buffer.push("\n          <a ");
+  data.buffer.push("\n            <a ");
   hashContexts = {'href': depth0};
   hashTypes = {'href': "STRING"};
   data.buffer.push(escapeExpression(helpers.bindAttr.call(depth0, {hash:{
     'href': ("view.href")
   },contexts:[],types:[],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push(">Kigali, Rwanda</a>\n        ");
+  data.buffer.push(">Kigali, Rwanda</a>\n          ");
   return buffer;
   }
 
 function program7(depth0,data) {
   
   var buffer = '', hashContexts, hashTypes;
-  data.buffer.push("\n          <a ");
+  data.buffer.push("\n            <a ");
   hashContexts = {'href': depth0};
   hashTypes = {'href': "STRING"};
   data.buffer.push(escapeExpression(helpers.bindAttr.call(depth0, {hash:{
     'href': ("view.href")
   },contexts:[],types:[],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push(">Der Es Salaam, Tanzania</a>\n        ");
+  data.buffer.push(">Der Es Salaam, Tanzania</a>\n          ");
   return buffer;
   }
 
-function program9(depth0,data) {
-  
-  var buffer = '', hashContexts, hashTypes;
-  data.buffer.push("\n          <a ");
-  hashContexts = {'href': depth0};
-  hashTypes = {'href': "STRING"};
-  data.buffer.push(escapeExpression(helpers.bindAttr.call(depth0, {hash:{
-    'href': ("view.href")
-  },contexts:[],types:[],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push(">Demo Africa, Nairobi, Kenya</a>\n        ");
-  return buffer;
-  }
-
-  data.buffer.push("<h1 id=\"tagline\">4 Weeks // 4 Countries // 8 Hackers</h1>\n\n<div id=\"intro\">\n  <p><span>We are a group of developers &amp; designers from Europe, curious\n    about the emerging African tech hubs.</span></p>\n  <p><span>We decided to explore the African tech communities ourselves and\n    share our impressions on the Web and with a video documentary.</span></p>\n</div>\n\n<div id=\"teaser\" class=\"row\">\n  <div class=\"col-lg-6\">\n    <iframe width=\"560\" height=\"315\" src=\"//www.youtube-nocookie.com/embed/w-QbKIctz60\" frameborder=\"0\" allowfullscreen></iframe>\n  </div>\n  <div class=\"col-lg-6\">\n    <p>We have been working with people from all over the world, but not yet with\n    hackers from Africa. We want to change that. We love travelling and believe\n    that it takes personal contacts to establish lasting networks.</p>\n    <p>We will meet, connect and share with our peers, bring together European and\n    African hacking culture, and kick off continuous exchange.</p>\n    <p>We want to get everyone in the international tech scene as excited about\n    African hackers as we are.</p>\n  </div>\n</div>\n\n<!--\n<div id=\"locations\">\n  <h3>When</h3>\n  <p>Sep 24 - Oct 27 2013</p>\n\n  <h3>Locations</h3>\n  <dl>\n    <dt>Sep 24 - Oct 01</dt> \n    <dd>\n       ");
+  data.buffer.push("<h1 id=\"tagline\">4 Weeks // 4 Countries // 8 Hackers</h1>\n\n<div id=\"intro\">\n  <p><span>We are a group of developers &amp; designers from Europe, curious\n    about the emerging African tech hubs.</span></p>\n  <p><span>We decided to explore the African tech communities ourselves and\n    share our impressions on the Web and with a video documentary.</span></p>\n</div>\n\n<div class=\"frontpage\">\n  <div id=\"teaser\" class=\"row\">\n    <div class=\"col-lg-6\">\n      <iframe width=\"560\" height=\"315\" src=\"//www.youtube-nocookie.com/embed/w-QbKIctz60\" frameborder=\"0\" allowfullscreen></iframe>\n    </div>\n    <div class=\"col-lg-6\">\n      <p>We have been working with people from all over the world, but not yet with\n      hackers from Africa. We want to change that. We love travelling and believe\n      that it takes personal contacts to establish lasting networks.</p>\n      <p>We will meet, connect and share with our peers, bring together European and\n      African hacking culture, and kick off continuous exchange.</p>\n      <p>We want to get everyone in the international tech scene as excited about\n      African hackers as we are.</p>\n    </div>\n  </div>\n\n  <!---\n  <div id=\"locations\">\n    <h2>Locations</h2>\n\n    <div class=\"row\">\n      <div class=\"col-lg-3\">\n         ");
   hashContexts = {'tagName': depth0};
   hashTypes = {'tagName': "STRING"};
   options = {hash:{
@@ -263,7 +250,7 @@ function program9(depth0,data) {
   },inverse:self.noop,fn:self.program(1, program1, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
   stack2 = ((stack1 = helpers.linkTo),stack1 ? stack1.call(depth0, "kenya", options) : helperMissing.call(depth0, "linkTo", "kenya", options));
   if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
-  data.buffer.push("\n    </dd>\n    <dt>Oct 02 - Oct 08</dt> \n    <dd>\n       ");
+  data.buffer.push("\n      </div>\n      <div class=\"col-lg-3\">\n         ");
   hashContexts = {'tagName': depth0};
   hashTypes = {'tagName': "STRING"};
   options = {hash:{
@@ -271,7 +258,7 @@ function program9(depth0,data) {
   },inverse:self.noop,fn:self.program(3, program3, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
   stack2 = ((stack1 = helpers.linkTo),stack1 ? stack1.call(depth0, "uganda", options) : helperMissing.call(depth0, "linkTo", "uganda", options));
   if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
-  data.buffer.push("\n    </dd>\n    <dt>Oct 09 - Oct 15</dt>\n    <dd>\n       ");
+  data.buffer.push("\n      </div>\n      <div class=\"col-lg-3\">\n         ");
   hashContexts = {'tagName': depth0};
   hashTypes = {'tagName': "STRING"};
   options = {hash:{
@@ -279,7 +266,7 @@ function program9(depth0,data) {
   },inverse:self.noop,fn:self.program(5, program5, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
   stack2 = ((stack1 = helpers.linkTo),stack1 ? stack1.call(depth0, "rwanda", options) : helperMissing.call(depth0, "linkTo", "rwanda", options));
   if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
-  data.buffer.push("\n    </dd>\n    <dt>Oct 16 - Oct 23</dt> \n    <dd>\n       ");
+  data.buffer.push("\n\n      </div>\n      <div class=\"col-lg-3\">\n           ");
   hashContexts = {'tagName': depth0};
   hashTypes = {'tagName': "STRING"};
   options = {hash:{
@@ -287,55 +274,7 @@ function program9(depth0,data) {
   },inverse:self.noop,fn:self.program(7, program7, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
   stack2 = ((stack1 = helpers.linkTo),stack1 ? stack1.call(depth0, "tanzania", options) : helperMissing.call(depth0, "linkTo", "tanzania", options));
   if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
-  data.buffer.push("\n    </dd>\n    <dt>Oct 24/25</dt>\n    <dd>\n       ");
-  hashContexts = {'tagName': depth0};
-  hashTypes = {'tagName': "STRING"};
-  options = {hash:{
-    'tagName': ("li")
-  },inverse:self.noop,fn:self.program(9, program9, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
-  stack2 = ((stack1 = helpers.linkTo),stack1 ? stack1.call(depth0, "kenya", options) : helperMissing.call(depth0, "linkTo", "kenya", options));
-  if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
-  data.buffer.push("\n    </dd>\n  </dl>\n</div>\n\n<div id=\"participants\">\n  <h3>Participants</h3>\n  <ul class=\"participants\">\n    <li><a href=\"");
-  hashTypes = {};
-  hashContexts = {};
-  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "page.root", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push("about.html#Gregor_Martynus\"><img src=\"http://www.gravatar.com/avatar/24fc194843a71f10949be18d5a692682?s=160\" alt=\"Gregor\" /></a></li>\n    <li><a href=\"");
-  hashTypes = {};
-  hashContexts = {};
-  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "page.root", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push("about.html#Vicy_Wenzelman\"><img src=\"");
-  hashTypes = {};
-  hashContexts = {};
-  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "page.root_path", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push("assets/images/vicy_80.png\" alt=\"Vicy\" /></a></li>\n    <li><a href=\"");
-  hashTypes = {};
-  hashContexts = {};
-  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "page.root", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push("about.html#Michael_Bumann\"><img src=\"http://www.gravatar.com/avatar/22c07ebd300e450d75e9e9ee9e974793?s=160\" alt=\"Michael\" /></a></li>\n    <li><a href=\"");
-  hashTypes = {};
-  hashContexts = {};
-  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "page.root", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push("about.html#Alexander_Lang\"><img src=\"http://www.gravatar.com/avatar/f29d8b3a51d303cc54b20932fa6c2639?s=160\" alt=\"Alex\" /></a></li>\n    <li><a href=\"");
-  hashTypes = {};
-  hashContexts = {};
-  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "page.root", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push("about.html#Martin_Stadler\"><img src=\"");
-  hashTypes = {};
-  hashContexts = {};
-  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "page.root", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push("assets/images/xmartin.jpg\" alt=\"Martin\" /></a></li>\n    <li><a href=\"");
-  hashTypes = {};
-  hashContexts = {};
-  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "page.root", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push("about.html#Jan-C_Borchardt\"><img src=\"http://www.gravatar.com/avatar/2fd3f4d5d762955e5b603794a888fa97?s=160\" alt=\"Jan\" /></a></li>\n    <li><a href=\"");
-  hashTypes = {};
-  hashContexts = {};
-  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "page.root", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push("about.html#Sebastian_Kippe\"><img src=\"http://www.gravatar.com/avatar/ca68e41e1ab60bd90f18384ef4b47f2a?s=160\" alt=\"Sebastian\" /></a></li>\n    <li><a href=\"");
-  hashTypes = {};
-  hashContexts = {};
-  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "page.root", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push("about.html#Tobias_Kraentzer\"><img src=\"http://www.gravatar.com/avatar/28bafcdc7327c4570e7cad5eecbebbab?s=160\" alt=\"Tobias\" /></a></li>\n  </ul>\n</div>\n\n<div id=\"supporters\">\n  <h3>Supporters</h3>\n  github, geekphone, etc\n</div>\n-->\n");
+  data.buffer.push("\n\n      </div>\n    </div>\n    -->\n</div>\n");
   return buffer;
   
 });
