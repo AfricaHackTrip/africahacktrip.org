@@ -66,7 +66,8 @@ window.Hackmap = {
       center: [-2.350415, 35.679931],
       zoom: 5,
       scrollWheelZoom: false,
-      zoomControl: false
+      zoomControl: false,
+      tap: true
     });
     self.m.addControl( L.control.zoom({position: 'bottomleft'}) );
     self.m.attributionControl.setPrefix('');
