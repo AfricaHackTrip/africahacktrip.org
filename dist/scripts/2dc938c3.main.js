@@ -3,6 +3,8 @@
 var AHT = window.AHT = Ember.Application.create({
 });
 
+window.IS_VERY_SMALL_SCREEN = $(document).innerWidth() < 768;
+
 /* Order and include as you please. */
 
 
