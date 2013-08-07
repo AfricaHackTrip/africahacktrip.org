@@ -50046,6 +50046,12 @@ window.Hackmap = {
 
   m: null,
 
+  countries: {
+    "kenya": {},
+    "uganda": {},
+    "rwanda": {},
+    "tanzania": {}
+  },
   cities: {
     nairobi: {
       country: "kenya",
@@ -50098,14 +50104,16 @@ window.Hackmap = {
     $.each(this.cities, function(cityName, city) {
       self.addCountryLabel(cityName, city);
       if($(document).innerWidth() > 800) {
-       //self.addCountryOverlay(city.country);
+       self.addCountryOverlay(city.country);
       }
     });
   },
 
   moveToCity: function(cityName) {
-   var city = this.cities[cityName];
-   this.m.setView([city.lat, city.lng], 7, {animate: true});
+    this.hideCountryOverlays();
+    var city = this.cities[cityName];
+    this.m.setView([city.lat, city.lng], 7, {animate: true});
+    this.countries[city.country].layer.setStyle({"opacity": 1, "weight": 4, "fillOpacity": 0})
   },
 
   moveToOverview: function() {
@@ -50114,6 +50122,9 @@ window.Hackmap = {
     } else {
       this.m.setView([-3.50415, 34.84863], 5, {animate: true});
     }
+    $.each(this.countries, function(country, attr) {
+      attr.layer.setStyle({"opacity": 1, "weight": 2, "fillOpacity": 0});
+    });
   },
 
   addCountryLabel: function(cityName, index) {
@@ -50128,25 +50139,33 @@ window.Hackmap = {
     $('#bigfatmap').animate({height: value});
   },
 
+  hideCountryOverlays: function() {
+    $.each(this.countries, function(name, attributes) {
+      attributes.layer.setStyle({"opacity": 0, "fillOpacity": 0})
+    });
+  },
   addCountryOverlay: function(country) {
     var outline = country.charAt(0).toUpperCase() + country.slice(1) + "Outline";
-    var layer = L.geoJson(window[outline], {
+    L.geoJson(window[outline], {
 		  style: function (feature) {
 				return {
-					weight: 1,
-					fillOpacity: 0.1,
+					weight: 2,
+          opacity: 1,
+					fillOpacity: 0,
 					color: "#8b8b8b"
 				};
 			},
 			onEachFeature: function(feature, layer) {
-				layer.on("mouseover", function(e) {
+        // our geojson only has one layer per country, so this is safe
+				Hackmap.countries[country].layer = layer;
+        layer.on("mouseover", function(e) {
 					layer.setStyle({
-						weight: 2
+						weight: 3
 					});
 				});
 				layer.on("mouseout", function(e) {
 					layer.setStyle({
-						weight: 1
+						weight: 2
 					});
 				});
 			}
