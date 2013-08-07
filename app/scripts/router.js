@@ -8,3 +8,12 @@ AHT.Router.map(function () {
   this.route('supporters', { path: "/supporters" });
   this.route('sponsoring', { path: "/sponsoring" });
 });
+
+AHT.Router.reopen({
+  didTransition: function(infos) {
+    if (window._gaq === undefined) { return; }
+    Ember.run.next(function(){
+      _gaq.push(['_trackPageview', window.location.hash.substr(1)]);
+    });
+  }
+});
