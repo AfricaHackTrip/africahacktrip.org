@@ -10,10 +10,16 @@ AHT.Router.map(function () {
 });
 
 AHT.Router.reopen({
-  didTransition: function(infos) {
-    if (window._gaq === undefined) { return; }
+  didTransition: function() {
     Ember.run.next(function(){
-      _gaq.push(['_trackPageview', window.location.hash.substr(1)]);
+      if (!Ember.isNone(_paq)) {
+        page = window.location.hash.length > 0 ?
+               window.location.hash.substring(1) :
+               window.location.pathname;
+        page = page == '/' ? 'index' : page;
+
+        _paq.push(['trackPageView', page]);
+      }
     });
   }
 });

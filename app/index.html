@@ -20,7 +20,7 @@
       <script src="scripts/country_outlines/tanzania.js"></script>
       <script src="scripts/country_outlines/rwanda.js"></script>
     <!-- endbuild -->
-    
+
     <!-- build:js scripts/components.js -->
       <script src="bower_components/jquery/jquery.js"></script>
       <script src="bower_components/handlebars/handlebars.runtime.js"></script>
@@ -40,16 +40,15 @@
       <script src="scripts/combined-scripts.js"></script>
       <!-- endbuild -->
 
-
       <script type="text/javascript">
-        var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-        document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-      </script>
-      <script type="text/javascript">
-        try {
-          var pageTracker = _gat._getTracker("UA-35163065-1");
-        pageTracker._trackPageview();
-        } catch(err) {}
+        var _paq = _paq || [];
+        (function() {
+          var u = "https://analytics.5apps.com/";
+          _paq.push(["setTrackerUrl", u+"piwik.php"]);
+          _paq.push(["setSiteId", "4"]);
+          var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+          g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+        })();
       </script>
   </body>
 </html>
