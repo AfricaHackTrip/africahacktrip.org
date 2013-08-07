@@ -34,7 +34,7 @@
 window.Hackmap = {
 
   m: null,
-
+  options: {},
   countries: {
     "kenya": {},
     "uganda": {},
@@ -69,6 +69,9 @@ window.Hackmap = {
   },
 
   initializeMap: function() {
+    this.options.mobile = window.IS_VERY_SMALL_SCREEN;
+    if(this.options.mobile) { return }
+
     var self = this;
     L.Icon.Default.imagePath = "/images/leaflet";
 
@@ -79,9 +82,6 @@ window.Hackmap = {
       zoomControl: false,
       tap: true
     });
-    if($(document).innerWidth() < 800) {
-      self.m.dragging.disable();
-    }
     self.m.addControl( L.control.zoom({position: 'bottomleft'}) );
     self.m.attributionControl.setPrefix('');
 
@@ -92,13 +92,13 @@ window.Hackmap = {
 
     $.each(this.cities, function(cityName, city) {
       self.addCountryLabel(cityName, city);
-      if($(document).innerWidth() > 800) {
-       self.addCountryOverlay(city.country);
-      }
+      self.addCountryOverlay(city.country);
     });
   },
 
   moveToCity: function(cityName) {
+    if(this.options.mobile) { return }
+
     this.hideCountryOverlays();
     var city = this.cities[cityName];
     this.m.setView([city.lat, city.lng], 7, {animate: true});
@@ -106,17 +106,17 @@ window.Hackmap = {
   },
 
   moveToOverview: function() {
-    if($(document).innerWidth() > 800) {
-      this.m.setView([-3.50415, 20.679931], 5, {animate: true});
-    } else {
-      this.m.setView([-3.50415, 34.84863], 5, {animate: true});
-    }
+    if(this.options.mobile) { return }
+
+    this.m.setView([-3.50415, 20.679931], 5, {animate: true});
     $.each(this.countries, function(country, attr) {
       attr.layer.setStyle({"opacity": 1, "weight": 2, "fillOpacity": 0});
     });
   },
 
   addCountryLabel: function(cityName, index) {
+    if(this.options.mobile) { return }
+
     var city = this.cities[cityName];
     L.marker([city.lat, city.lng])
       .bindLabel(city.label, { noHide: true })
@@ -125,15 +125,21 @@ window.Hackmap = {
   },
 
   setHeight: function(value) {
+    if(this.options.mobile) { return }
+
     $('#bigfatmap').animate({height: value});
   },
 
   hideCountryOverlays: function() {
+    if(this.options.mobile) { return }
+
     $.each(this.countries, function(name, attributes) {
       attributes.layer.setStyle({"opacity": 0, "fillOpacity": 0})
     });
   },
   addCountryOverlay: function(country) {
+    if(this.options.mobile) { return }
+
     var outline = country.charAt(0).toUpperCase() + country.slice(1) + "Outline";
     L.geoJson(window[outline], {
 		  style: function (feature) {
