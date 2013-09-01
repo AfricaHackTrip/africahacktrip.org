@@ -1,0 +1,13 @@
+<div class="tile" {{bindAttr class="className"}}>
+  {{#if isMedia}}
+    {{{embed}}}
+    <div class="caption">
+      <h3><a {{bindAttr href="url"}}>{{title}}</a></h3>
+      {{body}}
+    </div>
+  {{else}}
+    <h3><a {{bindAttr href="url"}}>{{title}}</a></h3>
+    {{body}}
+  {{/if}}
+</div>
+

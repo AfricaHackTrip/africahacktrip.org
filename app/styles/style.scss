@@ -1,15 +1,19 @@
 $text-color: #222;
-$link-color: darkred;
+$link-color: #db572f;;
+$orange: #db572f;
+$border-color: #cccbc2;
 
+iframe { border:0 }
 body {
-  background: url("/images/bg-noise.png") repeat scroll 0% 0% #aaa;
-  font-family: Ubuntu, sans-serif;
+  background: #f7f5e7;
+  font-family: "Source Sans Pro", Helvetica, sans-serif;
   color: $text-color;
   padding-top: 70px;
 }
 
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
-  font-family: monospace;
+  font-family: Bitter, Georgia, serif;
+	line-height: 1.3;
   color: $text-color;
 }
 
@@ -31,17 +35,28 @@ a:hover {
 }
 
 .navbar {
+  border: none;
   margin-bottom: 0;
   border-radius: 0;
-  background: url("/images/bg-noise.png") repeat scroll 0% 0% rgb(17, 17, 17);
+  background: #db572f;
   min-height: 50px;
-  li:hover {
+  a {
+    color: #000;
+  }
+  li a:hover {
     cursor: pointer
   }
   .container {
     padding: 0;
   }
 }
+.navbar-nav li a {
+  color: #000;
+}
+.navbar-nav .active a, .navbar-nav li.active a:hover, .navbar-nav li a:hover  {
+  background: #bc360a;
+}
+
 
 @media (min-width: 800px) {
   .navbar-nav > li > a {
@@ -59,31 +74,31 @@ a:hover {
   padding: 0 ;
   margin: 15px 25px 0 10px;
   display: inline-block;
-  width: 100px;
-  height: 42px;
+  width: 254px;
+  height: 56px;
   background: transparent url("/images/africahacktrip-logo-w.png") no-repeat 0 0;
   background-size: contain;
   text-indent: -1000000px;
 }
 
 footer {
+  border-top: 4px solid $orange;
   margin-bottom: 0;
   border-radius: 0;
-  background: url("/images/bg-noise.png") repeat scroll 0% 0% #111111;
+  background: #383838;
   padding: 0 0 40px 0;
   color: #999;
   .container {
     padding-bottom: 0;
   }
   a, a:link, a:visited {
-    color: #00ff00;
+    color: #969696;
   }
   h3 {
-    font-size: 20px;
+    font-size: 18px;
     padding: 40px 0 5px 0;
-    border-bottom: 1px solid #efefef;
     margin: 0 0 20px 0;
-    color: #efefef;
+    color: $orange
   }
   p, li {
     line-height: 1.6em;
@@ -145,7 +160,6 @@ footer {
   user-select: none;
   white-space: nowrap;
   z-index: 6;
-  font-family: monospace;
   font-size: 14px;
   margin-left: -8px;
 }
@@ -172,50 +186,69 @@ aside {
     font-weight: bold;
     margin: 0;
     padding-bottom: 5px;
-    border-bottom: 2px solid $text-color;
+    border-bottom: 1px solid $border-color;
   }
   h2 {
     font-size: 20px;
     font-weight: normal;
     margin: 0 0 20px 0;
     padding: 30px 0 5px 0;
-    border-bottom: 1px solid $text-color;
+    border-bottom: 1px solid $border-color;
   }
   p.date {
     font-size: 20px;
     padding: 10px 0;
-    border-bottom: 2px solid $text-color;
+    border-bottom: 1px solid $border-color;
     margin: 0;
   }
   li {
     line-height: 1.6em;
   }
 }
-
+.post {
+  .post-avatar {
+    float:left;
+    padding: 0 10px 0 0;
+    text-align: center;
+    font-size: 12px;
+    img { 
+      width: 50px;
+    }
+  }
+  .post-body {
+    padding-left: 65px
+  }
+  .post-meta {
+    font-size:10px;
+  }
+}
 main {
   display: block;
-  float: left;
-  width: 70%;
   padding-bottom: 80px;
   h1 {
-    font-size: 26px;
+    font-size: 28px;
     font-weight: normal;
     margin: 0 0 10px 0;
     padding-bottom: 5px;
     border-bottom: 2px solid $text-color;
   }
   h2 {
-    font-size: 20px;
+    font-size: 24px;
     font-weight: normal;
     margin: 0 0 20px 0;
-    padding: 25px 0 5px 0;
+    padding: 5px 0 5px 0;
     border-bottom: 1px solid $text-color;
+  }
+  h3 {
+    font-size: 22px;
+    font-weight: bold;
+    padding: 5px 0 5px 0;
   }
   p, li {
     line-height: 1.6em;
   }
   section {
-    padding-bottom: 30px;
+    margin-bottom: 30px;
     h1 {
       margin: 0 0 20px 0;
     }
@@ -231,7 +264,6 @@ main {
       font-size: 14px;
       font-weight: normal;
       margin: 0;
-      padding: 25px 0 5px 0;
       border-bottom: 1px solid $text-color;
     }
     h3 {
@@ -293,44 +325,21 @@ main {
   color: black;
 }
 
-#intro {
-	p {
-    font-size: 1.4em;
-    line-height: 2em;
-    margin: 0;
-  }
-}
-#intro span {
-  padding: .4em .4em .45em 0;
-}
 h1#tagline {
-  color: #efefef;
   font-size: 28px;
-  color: #00ff00;
+  font-weight: bold;
 }
 
+.intro p {
+  font-size: 18px;
+}
 @media (min-width: 800px) {
-	h1#tagline {
+	.intro {
+    width: 50%;
 		position: absolute;
-		top: 120px;
-	}
-	#intro {
-		position: absolute;
-		top: 210px;
-		span {
-			color: #efefef;
-			background: rgba(0,0,0, .8);
-		}
-		p {
-	    border-left: .4em solid rgba(0,0,0,0.8);
-			&:nth-child(1) {
-				max-width: 55%;
-				margin-bottom: 20px;
-			}
-			&:nth-child(2) {
-				max-width: 65%;
-			}
-		}
+		top: 110px;
+    background-color:rgba(255,255,255,0.6);
+    padding: 5px
 	}
 }
 @media (max-width: 800px) {
@@ -343,14 +352,13 @@ h1#tagline {
     margin-top: -30px;
     margin-bottom: 20px;
   }
-	#intro {
+	.intro {
 		width: 100%;
     padding-left: 15px;
     padding-right: 15px;
     padding-bottom: 20px;
     p {
       font-size: 18px;
-      line-height: 1.6em;
       margin-bottom: 10px;
     }
   }
@@ -379,6 +387,54 @@ h1#tagline {
   clear: both;
 }
 
+.tile {
+  margin: 10px 0;
+  padding: 0;
+  width: 234px;
+  img { width: 234px; }
+  h3 {
+    font-size: 16px;
+    margin-top: 0px;
+  }
+}
+.tile-2 {
+  width: 468px;
+  img { width: 468px; }  
+}
+.tile-3 {
+  width: 702px;
+  img { width: 702px; }
+}
+
+.tile {
+  position: relative;
+  //float: left;
+  overflow: hidden; 
+}
+.caption:nth-child(2n) {
+  margin-right: 0; 
+}
+.caption img {
+  transition: 500ms; 
+  }
+.caption {
+  position: absolute;
+  transition: 500ms;
+  width: 100%; 
+  bottom: 0;
+  left: 0px;
+  opacity: 0; 
+  padding:10px;
+  background-color: #000;
+  color: #fff;
+  h3 { color: #fff; }
+}
+.tile:hover .caption, .tile:active .caption {
+  opacity: 1; 
+}
+
+
+
 .frontpage {
   h2 {
     font-size: 20px;
@@ -387,12 +443,38 @@ h1#tagline {
     padding: 25px 0 5px 0;
     border-bottom: 1px solid $text-color;
   }
+  #grid {
+    margin-top: -100px;
+  }
+  figure {
+    margin: 10px;
+    width: 234px;
+    img { width: 234px; }
+  }
+  figure.tile {
+    width: 468px;
+    img { width: 468px; }
+  }
+  figure.x-large {
+    width: 702px;
+    img { width: 702px; }
+  }
+  figcaption {
+    background-color: #000;
+    color: #fff;
+    h3 {
+      color: #fff;
+      font-size: 16px;
+    }
+  }
 }
 
 aside .flag {
-  margin-top: 30px;
+  font-size: 22px;
+  padding-left: 70px;
+  margin-top: 10px;
   width: 100%;
-  height: 100px;
+  height: 35px;
 }
 .kenya aside .flag {
   background: url(/images/flags/kenya.png) no-repeat;
@@ -411,9 +493,7 @@ aside .flag {
   background-size: contain;
 }
 
-
-
-
+ul.people li:before { content: '\e802'; }
 #locations {
   background: url(/images/countries.png) 2em 100% no-repeat;
   background-size: contain;

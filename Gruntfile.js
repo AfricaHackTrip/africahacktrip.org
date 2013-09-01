@@ -13,6 +13,7 @@ var mountFolder = function (connect, dir) {
 
 module.exports = function (grunt) {
     // load all grunt tasks
+    console.log(require('matchdep').filterDev('grunt-*'));
     require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
 
     // configurable paths
@@ -25,7 +26,7 @@ module.exports = function (grunt) {
         yeoman: yeomanConfig,
         watch: {
             emberTemplates: {
-                files: '<%= yeoman.app %>/templates/**/*.hbs',
+                files: '<%= yeoman.app %>/**/*.hbs',
                 tasks: ['emberTemplates', 'livereload']
             },
             coffee: {
