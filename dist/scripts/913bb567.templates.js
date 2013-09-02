@@ -134,11 +134,11 @@ function program3(depth0,data) {
   return buffer;
   }
 
-  data.buffer.push("<div class=\"tile\" ");
+  data.buffer.push("<div ");
   hashContexts = {'class': depth0};
   hashTypes = {'class': "STRING"};
   data.buffer.push(escapeExpression(helpers.bindAttr.call(depth0, {hash:{
-    'class': ("className")
+    'class': (":tile className")
   },contexts:[],types:[],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
   data.buffer.push(">\n  ");
   hashTypes = {};
