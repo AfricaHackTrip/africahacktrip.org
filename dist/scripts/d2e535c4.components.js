@@ -9595,6 +9595,176 @@ if ( typeof define === "function" && define.amd && define.amd.jQuery ) {
 }
 
 })( window );
+// L.LabelOverlay = L.Class.extend({
+//     initialize: function(/*LatLng*/ latLng, /*String*/ label, options) {
+//         this._latlng = latLng;
+//         this._label = label;
+//         L.Util.setOptions(this, options);
+//     },
+//     options: {
+//         offset: new L.Point(0, 0)
+//     },
+//     onAdd: function(map) {
+//         this._map = map;
+//         if (!this._container) {
+//             this._initLayout();
+//         }
+//         map.getPanes().overlayPane.appendChild(this._container);
+//         this._container.innerHTML = this._label;
+//         map.on('viewreset', this._reset, this);
+//         this._reset();
+//     },
+//     onRemove: function(map) {
+//         map.getPanes().overlayPane.removeChild(this._container);
+//         map.off('viewreset', this._reset, this);
+//     },
+//     _reset: function() {
+//         var pos = this._map.latLngToLayerPoint(this._latlng);
+//         var op = new L.Point(pos.x + this.options.offset.x, pos.y - this.options.offset.y);
+//         L.DomUtil.setPosition(this._container, op);
+//     },
+//     _initLayout: function() {
+//         this._container = L.DomUtil.create('div', 'leaflet-label-overlay');
+//     }
+// });
+
+window.Hackmap = {
+
+  m: null,
+  options: {},
+  countries: {
+    "kenya": {},
+    "uganda": {},
+    "rwanda": {},
+    "tanzania": {}
+  },
+  cities: {
+    nairobi: {
+      country: "kenya",
+      lat: -1.294903,
+      lng: 36.824005,
+      label: '09/24-10/01'
+    },
+    kampala: {
+      country: "uganda",
+      lat: 0.312079,
+      lng: 32.581276,
+      label: '10/02-10/08'
+    },
+    kigali: {
+      country: "rwanda",
+      lat: -1.952099,
+      lng: 30.059570,
+      label: '10/09-10/15'
+    },
+    daressalaam: {
+      country: "tanzania",
+      lat: -6.826216,
+      lng: 39.269149,
+      label: '10/16-10/23'
+    }
+  },
+
+  initializeMap: function() {
+    this.options.mobile = window.IS_VERY_SMALL_SCREEN;
+    if(this.options.mobile) { return }
+
+    var self = this;
+    L.Icon.Default.imagePath = "/images/leaflet";
+
+    self.m = L.map('bigfatmap', {
+      center: [-2.350415, 35.679931],
+      zoom: 5,
+      scrollWheelZoom: false,
+      zoomControl: false,
+      tap: true
+    });
+    self.m.addControl( L.control.zoom({position: 'bottomleft'}) );
+    self.m.attributionControl.setPrefix('');
+
+    L.tileLayer('https://{s}.tiles.mapbox.com/v3/skddc.map-9wkh1xoj/{z}/{x}/{y}.png', {
+      attribution: '',
+      maxZoom: 17
+    }).addTo(self.m);
+
+    $.each(this.cities, function(cityName, city) {
+      self.addCountryLabel(cityName, city);
+      self.addCountryOverlay(city.country);
+    });
+  },
+
+  moveToCity: function(cityName) {
+    if(this.options.mobile) { return }
+
+    this.hideCountryOverlays();
+    var city = this.cities[cityName];
+    this.m.setView([city.lat, city.lng], 7, {animate: true});
+    this.countries[city.country].layer.setStyle({"opacity": 1, "weight": 4, "fillOpacity": 0})
+  },
+
+  moveToOverview: function() {
+    if(this.options.mobile) { return }
+
+    this.m.setView([-3.50415, 20.679931], 5, {animate: true});
+    $.each(this.countries, function(country, attr) {
+      attr.layer.setStyle({"opacity": 1, "weight": 2, "fillOpacity": 0});
+    });
+  },
+
+  addCountryLabel: function(cityName, index) {
+    if(this.options.mobile) { return }
+
+    var city = this.cities[cityName];
+    L.marker([city.lat, city.lng])
+      .bindLabel(city.label, { noHide: true })
+      .addTo(this.m)
+      .showLabel();
+  },
+
+  setHeight: function(value) {
+    if(this.options.mobile) { return }
+
+    $('#bigfatmap').animate({height: value});
+  },
+
+  hideCountryOverlays: function() {
+    if(this.options.mobile) { return }
+
+    $.each(this.countries, function(name, attributes) {
+      attributes.layer.setStyle({"opacity": 0, "fillOpacity": 0})
+    });
+  },
+  addCountryOverlay: function(country) {
+    if(this.options.mobile) { return }
+
+    var outline = country.charAt(0).toUpperCase() + country.slice(1) + "Outline";
+    L.geoJson(window[outline], {
+		  style: function (feature) {
+				return {
+					weight: 2,
+          opacity: 1,
+					fillOpacity: 0,
+					color: "#8b8b8b"
+				};
+			},
+			onEachFeature: function(feature, layer) {
+        // our geojson only has one layer per country, so this is safe
+				Hackmap.countries[country].layer = layer;
+        layer.on("mouseover", function(e) {
+					layer.setStyle({
+						weight: 3
+					});
+				});
+				layer.on("mouseout", function(e) {
+					layer.setStyle({
+						weight: 2
+					});
+				});
+			}
+		}).addTo(Hackmap.m);
+  }
+};
+
 /*
 
 Copyright (C) 2011 by Yehuda Katz
@@ -64753,172 +64923,3 @@ L.Map.include({
 	https://github.com/jacobtoye
 */
 (function(){L.labelVersion="0.1.4-dev",L.Label=L.Popup.extend({includes:L.Mixin.Events,options:{autoPan:!1,className:"",clickable:!1,closePopupOnClick:!1,noHide:!1,offset:new L.Point(12,-15),opacity:1},onAdd:function(t){this._map=t,this._pane=this._source instanceof L.Marker?t._panes.markerPane:t._panes.popupPane,this._container||this._initLayout(),this._updateContent();var e=t.options.fadeAnimation;e&&L.DomUtil.setOpacity(this._container,0),this._pane.appendChild(this._container),t.on("viewreset",this._updatePosition,this),this._animated&&t.on("zoomanim",this._zoomAnimation,this),L.Browser.touch&&!this.options.noHide&&L.DomEvent.on(this._container,"click",this.close,this),this._initInteraction(),this._update(),this.setOpacity(this.options.opacity)},onRemove:function(t){this._pane.removeChild(this._container),L.Util.falseFn(this._container.offsetWidth),t.off({viewreset:this._updatePosition,zoomanim:this._zoomAnimation},this),t.options.fadeAnimation&&L.DomUtil.setOpacity(this._container,0),this._removeInteraction(),this._map=null},close:function(){var t=this._map;t&&(L.Browser.touch&&!this.options.noHide&&L.DomEvent.off(this._container,"click",this.close),t._label=null,t.removeLayer(this))},updateZIndex:function(t){this._zIndex=t,this._container&&this._zIndex&&(this._container.style.zIndex=t)},setOpacity:function(t){this.options.opacity=t,this._container&&L.DomUtil.setOpacity(this._container,t)},_initLayout:function(){this._container=L.DomUtil.create("div","leaflet-label "+this.options.className+" leaflet-zoom-animated"),this.updateZIndex(this._zIndex)},_updateContent:function(){this._content&&"string"==typeof this._content&&(this._container.innerHTML=this._content)},_updateLayout:function(){},_updatePosition:function(){var t=this._map.latLngToLayerPoint(this._latlng);this._setPosition(t)},_setPosition:function(t){t=t.add(this.options.offset),L.DomUtil.setPosition(this._container,t)},_zoomAnimation:function(t){var e=this._map._latLngToNewLayerPoint(this._latlng,t.zoom,t.center);this._setPosition(e)},_initInteraction:function(){if(this.options.clickable){var t=this._container,e=["dblclick","mousedown","mouseover","mouseout","contextmenu"];L.DomUtil.addClass(t,"leaflet-clickable"),L.DomEvent.on(t,"click",this._onMouseClick,this);for(var i=0;e.length>i;i++)L.DomEvent.on(t,e[i],this._fireMouseEvent,this)}},_removeInteraction:function(){if(this.options.clickable){var t=this._container,e=["dblclick","mousedown","mouseover","mouseout","contextmenu"];L.DomUtil.removeClass(t,"leaflet-clickable"),L.DomEvent.off(t,"click",this._onMouseClick,this);for(var i=0;e.length>i;i++)L.DomEvent.off(t,e[i],this._fireMouseEvent,this)}},_onMouseClick:function(t){this.hasEventListeners(t.type)&&L.DomEvent.stopPropagation(t),this.fire(t.type,{originalEvent:t})},_fireMouseEvent:function(t){this.fire(t.type,{originalEvent:t}),"contextmenu"===t.type&&this.hasEventListeners(t.type)&&L.DomEvent.preventDefault(t),"mousedown"!==t.type?L.DomEvent.stopPropagation(t):L.DomEvent.preventDefault(t)}}),L.Icon.Default.mergeOptions({labelAnchor:new L.Point(9,-20)}),L.Marker.mergeOptions({icon:new L.Icon.Default}),L.Marker.include({showLabel:function(){return this._label&&this._map&&(this._label.setLatLng(this._latlng),this._map.showLabel(this._label)),this},hideLabel:function(){return this._label&&this._label.close(),this},setLabelNoHide:function(t){this._labelNoHide!==t&&(this._labelNoHide=t,t?(this._removeLabelRevealHandlers(),this.showLabel()):(this._addLabelRevealHandlers(),this.hideLabel()))},bindLabel:function(t,e){var i=L.point(this.options.icon.options.labelAnchor)||new L.Point(0,0);return i=i.add(L.Label.prototype.options.offset),e&&e.offset&&(i=i.add(e.offset)),e=L.Util.extend({offset:i},e),this._labelNoHide=e.noHide,this._label||(this._labelNoHide||this._addLabelRevealHandlers(),this.on("remove",this.hideLabel,this).on("move",this._moveLabel,this),this._hasLabelHandlers=!0),this._label=new L.Label(e,this).setContent(t),this},unbindLabel:function(){return this._label&&(this.hideLabel(),this._label=null,this._hasLabelHandlers&&(this._labelNoHide||this._removeLabelRevealHandlers(),this.off("remove",this.hideLabel,this).off("move",this._moveLabel,this)),this._hasLabelHandlers=!1),this},updateLabelContent:function(t){this._label&&this._label.setContent(t)},getLabel:function(){return this._label},_addLabelRevealHandlers:function(){this.on("mouseover",this.showLabel,this).on("mouseout",this.hideLabel,this),L.Browser.touch&&this.on("click",this.showLabel,this)},_removeLabelRevealHandlers:function(){this.off("mouseover",this.showLabel,this).off("mouseout",this.hideLabel,this),L.Browser.touch&&this.off("click",this.showLabel,this)},_moveLabel:function(t){this._label.setLatLng(t.latlng)},_originalUpdateZIndex:L.Marker.prototype._updateZIndex,_updateZIndex:function(t){var e=this._zIndex+t;this._originalUpdateZIndex(t),this._label&&this._label.updateZIndex(e)},_originalSetOpacity:L.Marker.prototype.setOpacity,setOpacity:function(t,e){this.options.labelHasSemiTransparency=e,this._originalSetOpacity(t)},_originalUpdateOpacity:L.Marker.prototype._updateOpacity,_updateOpacity:function(){var t=0===this.options.opacity?0:1;this._originalUpdateOpacity(),this._label&&this._label.setOpacity(this.options.labelHasSemiTransparency?this.options.opacity:t)}}),L.Path.include({bindLabel:function(t,e){return this._label&&this._label.options===e||(this._label=new L.Label(e,this)),this._label.setContent(t),this._showLabelAdded||(this.on("mouseover",this._showLabel,this).on("mousemove",this._moveLabel,this).on("mouseout remove",this._hideLabel,this),L.Browser.touch&&this.on("click",this._showLabel,this),this._showLabelAdded=!0),this},unbindLabel:function(){return this._label&&(this._hideLabel(),this._label=null,this._showLabelAdded=!1,this.off("mouseover",this._showLabel,this).off("mousemove",this._moveLabel,this).off("mouseout remove",this._hideLabel,this)),this},updateLabelContent:function(t){this._label&&this._label.setContent(t)},_showLabel:function(t){this._label.setLatLng(t.latlng),this._map.showLabel(this._label)},_moveLabel:function(t){this._label.setLatLng(t.latlng)},_hideLabel:function(){this._label.close()}}),L.Map.include({showLabel:function(t){return this._label=t,this.addLayer(t)}}),L.FeatureGroup.include({clearLayers:function(){return this.unbindLabel(),this.eachLayer(this.removeLayer,this),this},bindLabel:function(t,e){return this.invoke("bindLabel",t,e)},unbindLabel:function(){return this.invoke("unbindLabel")},updateLabelContent:function(t){this.invoke("updateLabelContent",t)}})})(this,document);
-// L.LabelOverlay = L.Class.extend({
-//     initialize: function(/*LatLng*/ latLng, /*String*/ label, options) {
-//         this._latlng = latLng;
-//         this._label = label;
-//         L.Util.setOptions(this, options);
-//     },
-//     options: {
-//         offset: new L.Point(0, 0)
-//     },
-//     onAdd: function(map) {
-//         this._map = map;
-//         if (!this._container) {
-//             this._initLayout();
-//         }
-//         map.getPanes().overlayPane.appendChild(this._container);
-//         this._container.innerHTML = this._label;
-//         map.on('viewreset', this._reset, this);
-//         this._reset();
-//     },
-//     onRemove: function(map) {
-//         map.getPanes().overlayPane.removeChild(this._container);
-//         map.off('viewreset', this._reset, this);
-//     },
-//     _reset: function() {
-//         var pos = this._map.latLngToLayerPoint(this._latlng);
-//         var op = new L.Point(pos.x + this.options.offset.x, pos.y - this.options.offset.y);
-//         L.DomUtil.setPosition(this._container, op);
-//     },
-//     _initLayout: function() {
-//         this._container = L.DomUtil.create('div', 'leaflet-label-overlay');
-//     }
-// });
-
-window.Hackmap = {
-
-  m: null,
-  options: {},
-  countries: {
-    "kenya": {},
-    "uganda": {},
-    "rwanda": {},
-    "tanzania": {}
-  },
-  cities: {
-    nairobi: {
-      country: "kenya",
-      lat: -1.294903,
-      lng: 36.824005,
-      label: '09/24-10/01'
-    },
-    kampala: {
-      country: "uganda",
-      lat: 0.312079,
-      lng: 32.581276,
-      label: '10/02-10/08'
-    },
-    kigali: {
-      country: "rwanda",
-      lat: -1.952099,
-      lng: 30.059570,
-      label: '10/09-10/15'
-    },
-    daressalaam: {
-      country: "tanzania",
-      lat: -6.826216,
-      lng: 39.269149,
-      label: '10/16-10/23'
-    }
-  },
-
-  initializeMap: function() {
-    this.options.mobile = window.IS_VERY_SMALL_SCREEN;
-    if(this.options.mobile) { return }
-
-    var self = this;
-    L.Icon.Default.imagePath = "/images/leaflet";
-
-    self.m = L.map('bigfatmap', {
-      center: [-2.350415, 35.679931],
-      zoom: 5,
-      scrollWheelZoom: false,
-      zoomControl: false,
-      tap: true
-    });
-    self.m.addControl( L.control.zoom({position: 'bottomleft'}) );
-    self.m.attributionControl.setPrefix('');
-
-    L.tileLayer('https://{s}.tiles.mapbox.com/v3/skddc.map-9wkh1xoj/{z}/{x}/{y}.png', {
-      attribution: '',
-      maxZoom: 17
-    }).addTo(self.m);
-
-    $.each(this.cities, function(cityName, city) {
-      self.addCountryLabel(cityName, city);
-      self.addCountryOverlay(city.country);
-    });
-  },
-
-  moveToCity: function(cityName) {
-    if(this.options.mobile) { return }
-
-    this.hideCountryOverlays();
-    var city = this.cities[cityName];
-    this.m.setView([city.lat, city.lng], 7, {animate: true});
-    this.countries[city.country].layer.setStyle({"opacity": 1, "weight": 4, "fillOpacity": 0})
-  },
-
-  moveToOverview: function() {
-    if(this.options.mobile) { return }
-
-    this.m.setView([-3.50415, 20.679931], 5, {animate: true});
-    $.each(this.countries, function(country, attr) {
-      attr.layer.setStyle({"opacity": 1, "weight": 2, "fillOpacity": 0});
-    });
-  },
-
-  addCountryLabel: function(cityName, index) {
-    if(this.options.mobile) { return }
-
-    var city = this.cities[cityName];
-    L.marker([city.lat, city.lng])
-      .bindLabel(city.label, { noHide: true })
-      .addTo(this.m)
-      .showLabel();
-  },
-
-  setHeight: function(value) {
-    if(this.options.mobile) { return }
-
-    $('#bigfatmap').animate({height: value});
-  },
-
-  hideCountryOverlays: function() {
-    if(this.options.mobile) { return }
-
-    $.each(this.countries, function(name, attributes) {
-      attributes.layer.setStyle({"opacity": 0, "fillOpacity": 0})
-    });
-  },
-  addCountryOverlay: function(country) {
-    if(this.options.mobile) { return }
-
-    var outline = country.charAt(0).toUpperCase() + country.slice(1) + "Outline";
-    L.geoJson(window[outline], {
-		  style: function (feature) {
-				return {
-					weight: 2,
-          opacity: 1,
-					fillOpacity: 0,
-					color: "#8b8b8b"
-				};
-			},
-			onEachFeature: function(feature, layer) {
-        // our geojson only has one layer per country, so this is safe
-				Hackmap.countries[country].layer = layer;
-        layer.on("mouseover", function(e) {
-					layer.setStyle({
-						weight: 3
-					});
-				});
-				layer.on("mouseout", function(e) {
-					layer.setStyle({
-						weight: 2
-					});
-				});
-			}
-		}).addTo(Hackmap.m);
-  }
-};

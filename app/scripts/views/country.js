@@ -1,6 +1,7 @@
 AHT.CountryView = Ember.View.extend({
   didInsertElement: function() {
-    //this.scheduleMasonry();
+    window.Hackmap.setHeight('250');
+    this.scheduleMasonry();
   },
   willClearRender: function() {
     this.$(".grid").masonry("destroy");
