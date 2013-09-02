@@ -1,6 +1,7 @@
 AHT.AboutUsView = Ember.View.extend({
 
     didInsertElement: function() {
+                        console.log("adsd");
       $('html, body').animate({scrollTop:0});
       window.Hackmap.setHeight('100px');
 
