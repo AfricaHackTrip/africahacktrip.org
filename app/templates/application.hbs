@@ -1,44 +1,34 @@
 <div {{bindAttr class="currentPath"}}>
-<div class="container-full">
-  <nav class="navbar navbar-fixed-top" role="navigtion">
+  <header class="navbar navbar-inverse navbar-fixed-top" role="banner">
     <div class="container">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="#">AfricaHackTrip</a>
-      </div>
+      
+      <nav class="collapse navbar-collapse navbar-responsive-collapse" role="navigtion">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">AfricaHackTrip</a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li>{{#linkTo 'country' 'kenya'}}Kenya{{/linkTo}}</li>
+          <li>{{#linkTo 'country' 'uganda'}}Uganda{{/linkTo}}</li>
+          <li>{{#linkTo 'country' 'rwanda'}}Rwanda{{/linkTo}}</li>
+          <li>{{#linkTo 'country' 'tanzania'}}Tanzania{{/linkTo}}</li>
 
-      <div class="collapse nav-collapse navbar-ex1-collapse">
-        <ul class="nav navbar-nav pull-right">
-          {{#linkTo about-us tagName="li"}}
-            <a {{bindAttr href="view.href"}}>About us</a>
-          {{/linkTo}}
-          {{#linkTo supporters tagName="li"}}
-            <a {{bindAttr href="view.href"}}>Supporters</a>
-          {{/linkTo}}
-          <li>
-            <a href="https://blog.africahacktrip.org">Blog</a>
-          </li>
+          <li>{{#linkTo 'about-us' class="active"}}About us{{/linkTo}}</li>
+          <li>{{#linkTo 'supporters' class="active"}}Supporters{{/linkTo}}</li>
+          <li><a href="https://blog.africahacktrip.org">Blog</a></li>
         </ul>
-      </div>
+      </nav>
     </div>
-  </nav>
+  </header>
 </div>
 <div id="bigfatmap"></div>
 <div class="container content">
   <div class="wrapper">
-as
-{{#each country in controller.countries}}
-  sas
-  {{country.name}}
-{{/each}}
-
-
-
-  {{outlet}}
+    {{outlet}}
   </div>
 </div>
 </div>

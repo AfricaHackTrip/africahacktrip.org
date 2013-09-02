@@ -12,7 +12,10 @@ AHT.Tile = DS.Model.extend({
   //  return this.get('embed') + "" != "";
   //},
   className: function() {
-    return "tile-" + this.get("size");
+    var klass = "";
+    klass += "tile-" + this.get("size");
+    //klass += " col-md-" + this.get("size");
+    return klass;
   }.property('size', 'isMedia')
 });
 
@@ -23,12 +26,12 @@ AHT.Tile.FIXTURES = [
     body: "",
     url: "http://afrinnovator.com/book/",
     embed: '<a href="http://afrinnovator.com/book/"><img src="http://re-publica.de/sites/re-publica.de/files/imagecache/user_image_large/pictures/picture-1762.jpg"></a>',
-    size: 1,
+    size: 2,
     isMedia: true,
     country: 1
   },
   {
-    id: 2,
+    id: 3,
     title: "Mark Kaigwa on the Silicon Savannah",
     body: "",
     embed: '<iframe width="468" scrolling="no" height="263" frameborder="0" src="http://www.dctp.tv/filme/silicon-savannah-mark-kaigwa/embed/" name="dctp-embed" marginwidth="0" marginheight="0"><br></iframe>',
@@ -37,12 +40,12 @@ AHT.Tile.FIXTURES = [
     country: 1
   },
   {
-    id: 3,
+    id: 2,
     title: "If it works in Africa, it'll workanywhere",
     body: "BRCK is Africa's answer to internet connectivity",
     embed: '<a href="http://brck.com/"><img src="http://brck.com/images/slide2.jpg"></a>',
     isMedia: true,
-    size: 1,
+    size: 4,
     country: 1
   },
   {
@@ -70,7 +73,7 @@ AHT.Tile.FIXTURES = [
     body: "",
     embed: "",
     isMedia: false,
-    size: 1,
+    size: 2,
     country: 1
   },
   {
@@ -80,14 +83,14 @@ AHT.Tile.FIXTURES = [
     body: "",
     embed: "",
     isMedia: false,
-    size: 1,
+    size: 4,
     country: 1
   },
   {
     id: 8,
     title: "There are 30 million mobile subscribers in Kenya - and 24.6 million adults over 15 years. (July 2012)",
     url: "http://www.ict.go.ke/docs/WB_KEU%207_FINAL%20301112.pdf",
-    size: 1,
+    size: 2,
     country: 1
   },
   {
@@ -101,15 +104,15 @@ AHT.Tile.FIXTURES = [
     id: 10,
     title: "Kenya's first submarine fibreoptic cable was launched in 2009.",
     url: "http://www.ict.go.ke/connectionyanguvu/?page_id=12",
-    size: 1,
+    size: 2,
     country: 1
   },
   {
     id: 11,
     title: "31% of Kenya's GDP is spent through M-Pesa.",
     url: "http://qz.com/57504/31-of-kenyas-gdp-is-spent-through-mobile-phones/",
-    country: 1,
-    size: 1
+    country: 4,
+    size: 2
   }
 
 ];
