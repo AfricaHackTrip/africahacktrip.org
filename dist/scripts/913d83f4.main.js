@@ -318,6 +318,7 @@ AHT.AboutUsView = Ember.View.extend({
 AHT.ApplicationView = Ember.View.extend({
 
     didInsertElement: function() {
+      $('html, body').animate({scrollTop:0});
       window.Hackmap.initializeMap();
     }
 
@@ -347,6 +348,7 @@ AHT.ApplicationView = Ember.View.extend({
 
 AHT.CountryView = Ember.View.extend({
   didInsertElement: function() {
+    $('html, body').animate({scrollTop:0});
     window.Hackmap.setHeight('250');
     this.scheduleMasonry();
   },
@@ -357,11 +359,15 @@ AHT.CountryView = Ember.View.extend({
     Ember.run.scheduleOnce('afterRender', this, this.applyMasonry);
   },
   applyMasonry: function() {
-                  console.log("soo");
-    this.$(".grid").masonry({
-      itemSelector: '.tile',
-       gutter: 10,
-       columnWidth: 280
+    $container = this.$(".grid")
+    $container.imagesLoaded(function() {
+      window.setTimeout(function() {
+        $container.masonry({
+          itemSelector: '.tile',
+          gutter: 10,
+          columnWidth: 280
+        });
+      }, 400)
     });
   }
 });
