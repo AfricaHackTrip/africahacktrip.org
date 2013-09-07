@@ -56188,7 +56188,7 @@ window.Hackmap = {
 
   initializeMap: function() {
     this.options.mobile = window.IS_VERY_SMALL_SCREEN;
-    if(this.options.mobile) { return }
+    if(this.options.mobile) { return; }
 
     var self = this;
     L.Icon.Default.imagePath = "/images/leaflet";
@@ -56215,16 +56215,16 @@ window.Hackmap = {
   },
 
   moveToCity: function(cityName) {
-    if(this.options.mobile) { return }
+    if(this.options.mobile) { return; }
 
     this.hideCountryOverlays();
     var city = this.cities[cityName];
     this.m.setView([city.lat, city.lng], 7, {animate: true});
-    this.countries[city.country].layer.setStyle({"opacity": 1, "weight": 4, "fillOpacity": 0})
+    this.countries[city.country].layer.setStyle({"opacity": 1, "weight": 4, "fillOpacity": 0});
   },
 
   moveToOverview: function() {
-    if(this.options.mobile) { return }
+    if(this.options.mobile) { return; }
 
     this.m.setView([-3.50415, 20.679931], 5, {animate: true});
     $.each(this.countries, function(country, attr) {
@@ -56233,7 +56233,7 @@ window.Hackmap = {
   },
 
   addCountryLabel: function(cityName, index) {
-    if(this.options.mobile) { return }
+    if(this.options.mobile) { return; }
 
     var city = this.cities[cityName];
     L.marker([city.lat, city.lng])
@@ -56243,20 +56243,20 @@ window.Hackmap = {
   },
 
   setHeight: function(value) {
-    if(this.options.mobile) { return }
+    if(this.options.mobile) { return; }
 
     $('#bigfatmap').animate({height: value});
   },
 
   hideCountryOverlays: function() {
-    if(this.options.mobile) { return }
+    if(this.options.mobile) { return; }
 
     $.each(this.countries, function(name, attributes) {
-      attributes.layer.setStyle({"opacity": 0, "fillOpacity": 0})
+      attributes.layer.setStyle({"opacity": 0, "fillOpacity": 0});
     });
   },
   addCountryOverlay: function(country) {
-    if(this.options.mobile) { return }
+    if(this.options.mobile) { return; }
 
     var outline = country.charAt(0).toUpperCase() + country.slice(1) + "Outline";
     L.geoJson(window[outline], {

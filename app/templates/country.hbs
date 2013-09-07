@@ -27,7 +27,7 @@
 
   </main>
 
-  <aside {{bind-attr class=":col-md-3 id"}}>
+  <aside {{bind-attr class=":country :col-md-3 id"}}>
     <h1>{{city_name}}</h1>
     <h3>{{dates}}</h3>
     <h2 class="flag">{{name}}</h2>
@@ -46,11 +46,13 @@
   </section>
 {{/if}}
 
-<section class="">
-  <h2>This is great</h2>
-  <div class="row grid">
-    {{#each controller.model.tiles}}
-      {{partial 'tile'}}
-    {{/each}}
-  </div>
-</section>
+{{#if controller.model.tiles}}
+  <section class="">
+    <h2>This is great</h2>
+    <div class="row grid">
+      {{#each controller.model.tiles}}
+        {{partial 'tile'}}
+      {{/each}}
+    </div>
+  </section>
+{{/if}}

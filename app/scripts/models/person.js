@@ -41,7 +41,7 @@ AHT.Person.FIXTURES = [
     name: "Kepha Ngito",
     about: "Manages MapKibera.org",
     pictureUrl: "http://farm9.staticflickr.com/8057/8182371175_6cd5e157cd.jpg"
-  },
+  }
 
 ];
 

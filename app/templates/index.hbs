@@ -1,7 +1,31 @@
 <div id="intro">
-  <h1 id="tagline">We are a group of developers & designers from Europe, curious about the emerging African tech hubs</h1>
+  <h1 id="tagline">
+    We are a group of developers & designers from Europe, curious about the emerging African tech hubs
+  </h1>
   <p>
-    We decided to explore the African tech community ourselves and share our impressions on the web and with a video documentary.
+    We decided to explore the African tech community ourselves and share our impressions on the web and with a video documentary.<br />
+  </p>
+  <p>
     The journey begins in September 2013
   </p>
 </div>
+
+<div id="teaser row">
+  <div class="col-md-6">
+  </div>
+
+</div>
+
+<section class="">
+  <div class="row grid">
+    <div class="tile tile-5">
+      <iframe width="560" height="315" src="//www.youtube-nocookie.com/embed/w-QbKIctz60" frameborder="0" allowfullscreen></iframe>
+    </div>
+
+    {{#if controller.model}}
+      {{#each controller.model}}
+        {{partial 'tile'}}
+      {{/each}}
+    {{/if}}
+  </div>
+</section>

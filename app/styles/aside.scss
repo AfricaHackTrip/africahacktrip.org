@@ -1,6 +1,10 @@
 $border-color: #d1d1d1;
 aside {
-  padding: 5px;
+  &.country {
+    padding: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
   background-color: #fff;
   border: 1px solid $border-color;
   padding-bottom: 40px;

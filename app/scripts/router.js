@@ -6,6 +6,12 @@ AHT.Router.map(function () {
   this.resource('country', { path: ':country_id' });
 });
 
+AHT.IndexRoute = Ember.Route.extend({
+  model: function(params) {
+    [1,2,3,4,5,6,7,8].forEach(function(e) { AHT.Tile.find(e) });
+    return AHT.Tile.all();
+  }
+});
 
 AHT.CountryRoute = Ember.Route.extend({
   setupController: function(controller, country) {

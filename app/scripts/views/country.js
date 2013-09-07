@@ -11,7 +11,7 @@ AHT.CountryView = Ember.View.extend({
     Ember.run.scheduleOnce('afterRender', this, this.applyMasonry);
   },
   applyMasonry: function() {
-    $container = this.$(".grid")
+    $container = this.$(".grid");
     $container.imagesLoaded(function() {
       window.setTimeout(function() {
         $container.masonry({
@@ -19,7 +19,7 @@ AHT.CountryView = Ember.View.extend({
           gutter: 10,
           columnWidth: 280
         });
-      }, 400)
+      }, 400);
     });
   }
 });

@@ -108,7 +108,7 @@ AHT.Person.FIXTURES = [
     name: "Kepha Ngito",
     about: "Manages MapKibera.org",
     pictureUrl: "http://farm9.staticflickr.com/8057/8182371175_6cd5e157cd.jpg"
-  },
+  }
 
 ];
 
@@ -359,7 +359,7 @@ AHT.CountryView = Ember.View.extend({
     Ember.run.scheduleOnce('afterRender', this, this.applyMasonry);
   },
   applyMasonry: function() {
-    $container = this.$(".grid")
+    $container = this.$(".grid");
     $container.imagesLoaded(function() {
       window.setTimeout(function() {
         $container.masonry({
@@ -367,7 +367,7 @@ AHT.CountryView = Ember.View.extend({
           gutter: 10,
           columnWidth: 280
         });
-      }, 400)
+      }, 400);
     });
   }
 });

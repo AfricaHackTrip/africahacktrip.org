@@ -310,13 +310,21 @@ main {
 //   left: -10px;
 // }
 
-
-h1#tagline {
-  font-size: 28px;
-  font-weight: bold;
+#intro {
+  position: absolute;
+  top: 140px;
+  width: 50%;
+  padding: 30px;
+  background-color: rgba(255, 255, 255, 0.7);
 }
 
-.intro p {
+h1#tagline {
+  font-size: 22px;
+  font-weight: bold;
+  color: #000;
+}
+
+#intro p {
   font-size: 18px;
 }
 @media (min-width: 800px) {
@@ -400,12 +408,22 @@ h1#tagline {
 }
 .tile-1 {
   width: 135px;
+  img {
+    width: 103px;
+    height: 103px;
+  }
 }
 .tile-2 {
   width: 280px;
+  img {
+    height: 248px;
+  }
 }
 .tile-3 {
   width: 425px;
+  img {
+    height: 393px;
+  }
 }
 .tile-4 {
   width: 570px;
