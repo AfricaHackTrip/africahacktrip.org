@@ -324,11 +324,13 @@ main {
 
 h1#tagline {
   font-size: 26px;
+  line-height: 1.5;
   font-weight: bold;
   color: #000;
 }
 #intro p {
-  font-size: 20px;
+  font-size: 18px;
+  line-height: 1.5;
 }
 @media (min-width: 800px) {
 	.intro {
