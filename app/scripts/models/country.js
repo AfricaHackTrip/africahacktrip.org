@@ -33,8 +33,12 @@ AHT.Country.FIXTURES = [
   {
     id: "uganda",
     name: "Uganda",
-    intro: "<p></p>",
-    tiles: []
+    city_name: "Kampala",
+    dates: "Oct 02 - Oct 08, 2013",
+    intro: "<p>Uganda is a young nation, about 75% of its 35 million people are youth - quite the opposite of most European countries and a rich source of creativity and entrepreneurship in an open and liberal market. In Kampala, government and private sector join hands in fostering ICT. The sector is growing rapidly and so are incubation centers like Outbox and Hive Colab, where young people come up with practical solutions for local problems. We can't wait to meet some serious hackers in Kampala!</p>",
+    tiles: [],
+    people: [],
+    events: []
   },
   {
     id: "tanzania",
