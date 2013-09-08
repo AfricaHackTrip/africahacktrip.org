@@ -3,8 +3,6 @@
 var AHT = window.AHT = Ember.Application.create({
 });
 
-window.IS_VERY_SMALL_SCREEN = $(document).innerWidth() < 768;
-
 /* Order and include as you please. */
 
 
@@ -168,6 +166,15 @@ AHT.Store = DS.Store.extend({
   revision: 12,
   adapter: 'DS.FixtureAdapter'
 });
+
+//AHT.Store = DS.Store.extend({
+//  revision: 11,
+//  adapter: ParseAdapter.create({
+//    applicationId: 'kCktuLwgFlrcxKMAy6bINnXoZSOVqvQLMDRBSQKT',
+//    restApiId: 't7dnXFvvLoQ5KTXbMW8sGI4hVBcvZ1oKwbtnwlIg',
+//    javascriptId: 'y5Bj2iS4tMXMJqkQ0u8LlMLSDKHWzIXrgJKSO6wO'
+//  })
+//});
 
 
 })();

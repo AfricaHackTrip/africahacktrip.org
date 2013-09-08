@@ -374,11 +374,11 @@ h1#tagline {
 #teaser {
   font-size: 18px;
   line-height: 1.6em;
-  margin-bottom: 3em;
+  margin-bottom:35px;
 }
-#teaser-video {
+.teaser-video {
   float: left;
-  margin-right: 15px;
+  margin-right: 35px;
 }
 #locations {
   clear: both;
@@ -414,7 +414,6 @@ h1#tagline {
   clear: both;
 }
 .tile {
-  padding: 15px;
   margin: 10px 10px 0px 0px;
   background-color: #f8f6f1;
   border: 1px solid $border-color;
