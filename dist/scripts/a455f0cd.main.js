@@ -15,6 +15,7 @@ window.IS_VERY_SMALL_SCREEN = $(document).innerWidth() < 768;
 AHT.Country = DS.Model.extend({
   tiles: DS.hasMany('AHT.Tile'),
   people: DS.hasMany('AHT.Person'),
+  events: DS.hasMany('AHT.Event'),
   spaces: DS.hasMany('AHT.Space'),
   name: DS.attr('string'),
   city_name: DS.attr('string'),
@@ -34,8 +35,8 @@ AHT.Country.FIXTURES = [
     dates: "Sep 24 - Oct 27, 2013",
     intro: "<p>Nairobi is East Africa's economic and innovation center. It may not be the fastest growing city in Africa, but it is home to a Creative Class, made up of Kenyans and expatriates alike, many of them working in ICT. From what we've heard so far, the city buzzes and hums with hacktivity.</p><p>In 2012, Kenya's ICT Board conceptualized a 5-year-plan to see ICT contribute 25% of the GDP and thus make Kenya a \"digital nation\". Key to this transition is innovation. More and more innovation takes place in hubs, where entrepreneurs cowork on finding solutions for local problems.</p><p>We are überexcited to come to Nairobi and meet the local hackers!</p>",
     tiles: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
-    people: [1,2,3,4, 5]
-
+    people: [1,2,3,4, 5],
+    events: [1,2,3]
   },
   {
     id: "rwanda",
@@ -58,6 +59,34 @@ AHT.Country.FIXTURES = [
 
 
 
+];
+
+
+})();
+
+(function() {
+
+AHT.Event = DS.Model.extend({
+  country: DS.belongsTo('AHT.Country'),
+  name: DS.attr('string'),
+  description: DS.attr('string'),
+  date: DS.attr('string'),
+  place: DS.attr('string'),
+  lanyrdUrl: DS.attr('string'),
+
+});
+
+AHT.Event.FIXTURES = [
+  {
+    id: 1,
+    country: 1,
+    name: "Barcamp",
+    description: "",
+    date: "Saturday 25th. Sept.",
+    place: "iHub",
+    type: "barcamp",
+    lanyrdUrl: ""
+  }
 ];
 
 
