@@ -8,7 +8,6 @@ iframe { border:0 }
 body {
   background: #fbf8ef;
   font-family: "Source Sans Pro", Helvetica, sans-serif;
-  font-family: Ubuntu, sans-serif;
   font-size: 16px;
   line-height: 22px;
   color: $text-color;
@@ -83,7 +82,7 @@ a:hover {
   }
 }
 .navbar-inverse .navbar-nav li a {
-  font-size: 115;
+  font-size: 16px;
   color: #000;
 }
 .navbar-inverse .navbar-nav .active a, .navbar-inverse .navbar-nav li.active a:hover, .navbar-inverse .navbar-nav li a:hover  {
